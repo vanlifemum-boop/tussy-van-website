@@ -414,6 +414,188 @@ window.POLEN_DATA = [
     blurb: "Polens größter Freizeitpark mit einigen der schnellsten Achterbahnen Europas — der Familien-Stopp zwischen Krakau und Auschwitz."
   },
 
+  /* ---- Neue Ausflugsziele mit exakten GPS-Koordinaten ---- */
+  {
+    id: "zamek-gorka", name: "Zamek Górka", region: "westen",
+    kat: "burg", status: "sehenswert", x: 502.4, y: 439.2,
+    lat: 50.88732, lon: 16.70901, meta: "Sobótka · Schloss",
+    blurb: "Unter der Schlossfassade steckt ein über Jahrhunderte gewachsener Baukomplex — von der mittelalterlichen Kapelle bis zur Neorenaissance."
+  },
+  {
+    id: "spichlerz-rocka-jarocin", name: "Spichlerz Polskiego Rocka", region: "westen",
+    kat: "museum", status: "sehenswert", x: 512.5, y: 413.4,
+    lat: 51.973736, lon: 17.500491, meta: "Jarocin · Museum",
+    blurb: "Das Museum im historischen Speicher erzählt mit Konzertmitschnitten, Instrumenten, Fotos und Erinnerungsstücken die Geschichte des Jarocin-Festivals."
+  },
+  {
+    id: "rynek-jarocin", name: "Rynek Jarocin", short: "Jarocin", region: "westen",
+    kat: "stadt", status: "sehenswert", x: 512.5, y: 413.4,
+    lat: 51.972345, lon: 17.501552, meta: "Jarocin · Marktplatz",
+    blurb: "Historischer Markt mit dem ungewöhnlichen Arkadenrathaus, Bürgerhäusern aus dem 19. Jahrhundert und der nahen Martinskirche."
+  },
+  {
+    id: "amfiteatr-jarocin", name: "Amfiteatr Jarocin", region: "westen",
+    kat: "sehens", status: "sehenswert", x: 512.5, y: 413.4,
+    lat: 51.97475, lon: 17.50496, meta: "Jarocin · Amphitheater",
+    blurb: "Legendärer Schauplatz des Jarocin-Festivals im Stadtpark — gleich neben dem neugotischen Radoliński-Palais."
+  },
+  {
+    id: "westernland", name: "WesternLand", region: "westen",
+    kat: "sonstige", status: "sehenswert", x: 518.2, y: 412.6,
+    lat: 51.990438, lon: 17.916989, meta: "Józefów bei Chocz · Freizeitpark",
+    blurb: "Familienpark im Wildwest-Stil mit Westernstadt, Indianerdorf und saisonalen Mitmach-Attraktionen."
+  },
+  {
+    id: "zagroda-goluchow", name: "Pokazowa Zagroda Zwierząt w Gołuchowie", region: "westen",
+    kat: "natur", status: "sehenswert", x: 518.4, y: 415.6,
+    lat: 51.859647, lon: 17.924362, meta: "Gołuchów · Tierpark",
+    blurb: "In dem weitläufigen Waldpark lassen sich Wisente, polnische Konik-Pferde, Damhirsche und Wildschweine von Aussichtsterrassen beobachten."
+  },
+  {
+    id: "rynek-ostrow-wielkopolski", name: "Rynek Ostrów Wielkopolski", short: "Ostrów Wlkp.", region: "westen",
+    kat: "stadt", status: "sehenswert", x: 517.1, y: 420.5,
+    lat: 51.64963, lon: 17.8175, meta: "Ostrów Wielkopolski · Marktplatz",
+    blurb: "Marktplatz mit Rathaus, Häusern aus dem 19. und frühen 20. Jahrhundert und Blick auf die neoromanische Kirche."
+  },
+  {
+    id: "mandoria", name: "Mandoria – Miasto Przygód", region: "zentral",
+    kat: "sonstige", status: "sehenswert", x: 540.0, y: 418.7,
+    lat: 51.64825, lon: 19.48331, meta: "Rzgów bei Łódź · Freizeitpark",
+    blurb: "Ganzjährig überdachter Familien-Freizeitpark, gestaltet wie eine lebendige Handelsstadt aus der Renaissance."
+  },
+  {
+    id: "palac-maltzanow", name: "Pałac Maltzanów", region: "westen",
+    kat: "burg", status: "sehenswert", x: 509.6, y: 423.9,
+    lat: 51.5302, lon: 17.2665, meta: "Milicz · Palast",
+    blurb: "Klassizistischer Adelspalast im Barycz-Tal, umgeben von einem Landschaftspark; heute wird das Gebäude als Schule genutzt."
+  },
+  {
+    id: "szlaban-baranowice", name: "Historischer Grenzschlagbaum Baranowice", region: "westen",
+    kat: "sehens", status: "sehenswert", x: 506.8, y: 423.3,
+    lat: 51.563427, lon: 17.066404, meta: "Baranowice · Grenzdenkmal",
+    blurb: "Ein erhaltener Schlagbaum erinnert hier an die polnisch-deutsche Grenze der Zwischenkriegszeit."
+  },
+  {
+    id: "rynek-rawicz", name: "Rynek w Rawiczu", short: "Rawicz", region: "westen",
+    kat: "stadt", status: "sehenswert", x: 503.9, y: 422.5,
+    lat: 51.609202, lon: 16.858026, meta: "Rawicz · Marktplatz",
+    blurb: "Regelmäßig angelegter Markt der 1638 gegründeten Stadt, geprägt vom klassizistischen Rathaus und Bürgerhäusern des 19. Jahrhunderts."
+  },
+  {
+    id: "palac-zmigrod", name: "Zespół Pałacowo-Parkowy w Żmigrodzie", region: "westen",
+    kat: "burg", status: "sehenswert", x: 504.8, y: 425.3,
+    lat: 51.482273, lon: 16.917031, meta: "Żmigród · Schlosspark",
+    blurb: "Gesicherte Ruinen einer einst großen schlesischen Adelsresidenz in einem Landschaftspark mit alten Bäumen und Spazierwegen."
+  },
+  {
+    id: "brama-wroclawska-olesnica", name: "Brama Wrocławska w Oleśnicy", region: "westen",
+    kat: "sehens", status: "sehenswert", x: 511.3, y: 431.1,
+    lat: 51.210917, lon: 17.376611, meta: "Oleśnica · Stadttor",
+    blurb: "Das mittelalterliche Breslauer Tor ist der am besten erhaltene Teil der früheren Oleśnicaer Stadtbefestigung."
+  },
+  {
+    id: "zaklad-karny-rawicz", name: "Zakład Karny w Rawiczu", region: "westen",
+    kat: "sehens", status: "sehenswert", x: 504.0, y: 422.5,
+    lat: 51.608029, lon: 16.863529, meta: "Rawicz · Historischer Gefängnisbau",
+    blurb: "Der sternförmig angelegte Gefängniskomplex von 1819 gehört zu den ältesten Anlagen dieser Art in Polen."
+  },
+  {
+    id: "muzeum-bombki-milicz", name: "Muzeum Bombki w Miliczu", region: "westen",
+    kat: "museum", status: "sehenswert", x: 509.8, y: 424.1,
+    lat: 51.520966, lon: 17.280594, meta: "Milicz · Museum",
+    blurb: "Tausende Weihnachtsbaumkugeln und Figuren zeigen die Vielfalt und traditionelle handwerkliche Herstellung des gläsernen Schmucks."
+  },
+  {
+    id: "rynek-trzebnica", name: "Rynek w Trzebnicy", short: "Trzebnica", region: "westen",
+    kat: "stadt", status: "sehenswert", x: 506.9, y: 429.2,
+    lat: 51.307795, lon: 17.059625, meta: "Trzebnica · Marktplatz",
+    blurb: "Der zentrale Marktplatz von Trzebnica mit Rathaus, Brunnen und historischer Bebauung ist ein guter Ausgangspunkt für den Stadtrundgang."
+  },
+  {
+    id: "sanktuarium-jadwigi-trzebnica", name: "Sanktuarium Świętej Jadwigi Śląskiej", region: "westen",
+    kat: "sakral", status: "sehenswert", x: 507.0, y: 429.1,
+    lat: 51.309567, lon: 17.067111, meta: "Trzebnica · Wallfahrt",
+    blurb: "Bedeutende Wallfahrtsbasilika mit dem Grab der heiligen Hedwig von Schlesien und dem früheren Zisterzienserinnenkloster."
+  },
+  {
+    id: "rynek-twardogora", name: "Rynek Twardogóra", short: "Twardogóra", region: "westen",
+    kat: "stadt", status: "sehenswert", x: 512.5, y: 427.4,
+    lat: 51.366176, lon: 17.467486, meta: "Twardogóra · Marktplatz",
+    blurb: "Kompaktes historisches Zentrum mit dem Rathaus von 1902 und zwei sehenswerten Kirchen in unmittelbarer Nähe."
+  },
+  {
+    id: "palac-goszcz", name: "Pałac w Goszczu", region: "westen",
+    kat: "burg", status: "sehenswert", x: 512.6, y: 426.7,
+    lat: 51.397222, lon: 17.477222, meta: "Goszcz · Schlossruine",
+    blurb: "Die gesicherte Ruine einer großen barocken Residenz bewahrt Fassaden, Rokoko-Ornamente und Teile des repräsentativen Mittelbaus."
+  },
+  {
+    id: "bazylika-jana-olesnica", name: "Bazylika św. Jana Apostoła w Oleśnicy", region: "westen",
+    kat: "sakral", status: "sehenswert", x: 511.4, y: 431.1,
+    lat: 51.20955, lon: 17.37809, meta: "Oleśnica · Basilika",
+    blurb: "Historische Schlosskirche und heutige Basilika direkt neben dem Oleśnicaer Herzogsschloss."
+  },
+  {
+    id: "mur-berlinski-sosnowka", name: "Fragmenty muru berlińskiego", region: "westen",
+    kat: "sonstige", status: "sehenswert", x: 512.4, y: 428.6,
+    lat: 51.314632, lon: 17.461977, meta: "Sosnówka bei Twardogóra · Kuriosum",
+    blurb: "Auf einer Wiese stehen 30 Segmente der Berliner Mauer halbkreisförmig als Installation „Parabola“."
+  },
+  {
+    id: "zamek-ksiazat-olesnickich", name: "Zamek Książąt Oleśnickich", region: "westen",
+    kat: "burg", status: "sehenswert", x: 511.4, y: 431.1,
+    lat: 51.20911, lon: 17.37699, meta: "Oleśnica · Schloss",
+    blurb: "Renaissance-Residenz der Oleśnicaer Herzöge mit mittelalterlichem Ursprung, markantem Turm und Innenhof."
+  },
+  {
+    id: "rynek-olesnica", name: "Rynek Oleśnica", short: "Oleśnica", region: "westen",
+    kat: "stadt", status: "sehenswert", x: 511.4, y: 431.1,
+    lat: 51.20955, lon: 17.37978, meta: "Oleśnica · Marktplatz",
+    blurb: "Historischer Marktplatz der früheren Herzogsstadt mit klassizistischem Rathaus im Zentrum."
+  },
+  {
+    id: "mauzoleum-biron-sycow", name: "Mauzoleum rodziny Biron von Curland", region: "westen",
+    kat: "sehens", status: "sehenswert", x: 516.0, y: 428.5,
+    lat: 51.305226, lon: 17.721838, meta: "Syców · Mausoleum",
+    blurb: "Die Backsteinkapelle der Familie Biron liegt in der ruhigen historischen Parkanlage von Syców."
+  },
+  {
+    id: "sanktuarium-wieruszow", name: "Sanktuarium Miłosiernego Jezusa Pięciorańskiego", region: "zentral",
+    kat: "sakral", status: "sehenswert", x: 522.0, y: 428.2,
+    lat: 51.2958, lon: 18.15234, meta: "Wieruszów · Wallfahrt",
+    blurb: "Barocke Paulinerkirche mit einem verehrten Christusbild und einer Klostertradition, die bis ins Jahr 1401 zurückreicht."
+  },
+  {
+    id: "muzeum-regionalne-pilzno", name: "Muzeum Regionalne w Pilźnie", region: "sueden",
+    kat: "museum", status: "sehenswert", x: 566.1, y: 454.9,
+    lat: 49.979634, lon: 21.29108, meta: "Pilzno · Museum",
+    blurb: "Das Museum im ehemaligen Organistenhaus zeigt archäologische Funde, Stadtgeschichte, historische Wohnräume und regionale Sammlungen."
+  },
+  {
+    id: "muzeum-lalek-pilzno", name: "Muzeum Lalek w Pilźnie", region: "sueden",
+    kat: "museum", status: "sehenswert", x: 566.1, y: 455.0,
+    lat: 49.976745, lon: 21.291686, meta: "Pilzno · Puppenmuseum",
+    blurb: "Privates Puppenmuseum mit handgefertigten Figuren, historischen Puppen und Einblicken in die traditionelle Herstellung."
+  },
+  {
+    id: "samolot-li2p-wieruszow", name: "Samolot Li-2P Wieruszów", region: "zentral",
+    kat: "sonstige", status: "sehenswert", x: 521.9, y: 428.3,
+    lat: 51.29563, lon: 18.14742, meta: "Wieruszów · Kuriosum",
+    blurb: "Das seit den 1960er-Jahren im Stadtgebiet stehende Flugzeug ist ein ungewöhnliches Wahrzeichen von Wieruszów."
+  },
+  {
+    id: "dworek-oborskich-mielec", name: "Muzeum Regionalne – Dworek i Park Oborskich", region: "sueden",
+    kat: "museum", status: "sehenswert", x: 567.6, y: 447.8,
+    lat: 50.284342, lon: 21.410844, meta: "Mielec · Museum",
+    blurb: "Der repräsentative Landsitz der Familie Oborski beherbergt heute Ausstellungen zur Familien- und Regionalgeschichte von Mielec."
+  },
+  {
+    id: "rynek-mielec", name: "Rynek Mielec", short: "Mielec", region: "sueden",
+    kat: "stadt", status: "sehenswert", x: 567.7, y: 447.8,
+    lat: 50.28608, lon: 21.41964, meta: "Mielec · Marktplatz",
+    blurb: "Der rechteckige Markt ist seit dem 15. Jahrhundert das Zentrum der Altstadt; die barocke Matthäusbasilika liegt nur wenige Schritte entfernt."
+  },
+
   /* ---- 🚽 MOPs mit Camper-Service (Ver-/Entsorgung & Wasser) — Auswahl, wird ergänzt ---- */
   {
     id: "mop-brwinow", name: "MOP Brwinów (A2)", region: "zentral",
@@ -450,7 +632,7 @@ window.POLEN_REGIONS = [
   { key: "sueden", label: "Süden" }
 ];
 
-/* Kategorien-Legende (Icon + Label), zwei Gruppen — an wyprawomaniak.pl angelehnt. */
+/* Kategorien-Legende (Icon + Label), zwei Gruppen. */
 window.POLEN_KATEGORIEN = [
   { group: "🔎 Sehenswertes", items: [
     { key: "stadt",    icon: "🏙️", label: "Städte & Regionen" },
@@ -517,19 +699,28 @@ window.POLEN_STATUS = {
 
   function katMeta(k) { return KAT[k] || { icon: "📍", label: k || "Ort" }; }
   function noKatFilter() { return Object.keys(state.kats).length === 0; }
+  function placeUrl(place) {
+    if (typeof place.lat === "number" && typeof place.lon === "number") {
+      return "https://www.google.com/maps/search/?api=1&query=" +
+        encodeURIComponent(place.lat + "," + place.lon);
+    }
+    return place.url || "#";
+  }
 
   /* --- Kacheln (Beiträge / Ziele) rendern --- */
   data.forEach(function (d) {
     var km = katMeta(d.kat);
     var st = STATUS[d.status] || STATUS.ziel;
     var a = document.createElement("a");
+    var href = placeUrl(d);
     a.className = "post-card";
     a.id = "pl-card-" + d.id;
-    a.href = d.url;
-    if (/^https?:/.test(d.url)) { a.target = "_blank"; a.rel = "noopener"; }
+    a.href = href;
+    if (/^https?:/.test(href)) { a.target = "_blank"; a.rel = "noopener"; }
     a.setAttribute("data-region", d.region);
     a.setAttribute("data-kat", d.kat || "");
-    a.setAttribute("data-text", (d.name + " " + d.blurb + " " + d.meta + " " + km.label).toLowerCase());
+    a.setAttribute("data-text", (d.name + " " + d.blurb + " " + d.meta + " " + km.label + " " +
+      (d.lat || "") + " " + (d.lon || "")).toLowerCase());
     var badge = d.status === "ziel" ? " · bald mehr" : "";
     a.innerHTML =
       '<span class="cat sticker ' + st.tag + '">' + km.icon + " " + st.label + badge + "</span>" +

@@ -71,15 +71,22 @@
         <p>Mehr zum Thema: <a href="blog/polen-legal-uebernachten.html">Wo darf man in Polen legal übernachten? →</a> · <a href="ratgeber/camping-knigge.html">Der Camping-Knigge →</a> · <a href="blog/trockentrenntoilette-erfahrung.html">Meine Erfahrung mit der Trockentrenntoilette →</a></p>
 
         <h2 id="europa">🌍 Entsorgungsstationen in Europa — die Karte</h2>
-        <p>Für unterwegs habe ich dir pro Land eine <b>Auswahl bewährter Stationen</b> herausgesucht — von Kopenhagen bis zur Algarve. Klick ein Land an, um hineinzuzoomen, und klick einen Pin, um die Station direkt in Google Maps zu öffnen. Für Polen nutz am besten die Detail-Karte oben. Alle Angaben ohne Gewähr, bitte vor der Anfahrt kurz prüfen.</p>
+        <p>Hier findest du den vollständigen Bestand aus der Bordatlas-Liste <b>„Entsorgungsstationen Europa“ (Stand 2020)</b> plus meine handverlesenen Ergänzungen. Klick ein Land an, um hineinzuzoomen, oder such nach Ort und Postleitzahl. Die Pin-Positionen sind aus PLZ und Ort angenähert; der Link öffnet die vollständige Adresse in Google Maps. Bitte prüfe vor der Anfahrt, ob die Station noch geöffnet ist.</p>
 
         <div class="dest-filter" data-eu-filter style="justify-content:center"></div>
         <div class="eu-mapwrap">
           <div data-eu-map="img/europe-map.svg" aria-label="Europakarte mit Entsorgungsstationen für Camper"></div>
         </div>
         <p class="eu-count" data-eu-count></p>
+        <p class="eu-source">Adressdaten: Bordatlas 2020 · Kartenpositionen: <a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>)</p>
 
-        <h3>Die Stationen als Liste nach Ländern</h3>
+        <div class="eu-searchbox">
+          <label for="eu-station-search"><b>Station suchen</b></label>
+          <input id="eu-station-search" data-eu-search type="search" placeholder="Ort, PLZ oder Stationsname" autocomplete="off">
+        </div>
+        <div class="eu-results" data-eu-list aria-live="polite"></div>
+
+        <h3>Meine kuratierte Auswahl nach Ländern</h3>
 
         <details class="box">
           <summary><b>🇩🇪 Deutschland</b> — Auswahl nach Bundesland</summary>
@@ -215,7 +222,7 @@
           <li><a href="https://park4night.com/" target="_blank" rel="noopener">Park4Night</a> — die App fürs Ausland: Live-Status und Bewertungen anderer Camper.</li>
         </ul>
 
-        <p>Die Sammlung wächst laufend — weitere Länder und Stationen kommen dazu. 💛</p>
+        <p>Hinweis: Der große importierte Datenbestand stammt aus dem Jahr 2020. Änderungen, Schließungen und neue Stationen sind möglich. 💛</p>
       </div>
     </div>
   </section>
@@ -245,6 +252,7 @@
   <script src="js/polen-camper.js"></script>
   <script src="js/polen.js"></script>
   <script src="js/entsorgung-europa-daten.js"></script>
+  <script src="js/entsorgung-europa-bordatlas.js"></script>
   <script src="js/entsorgung-europa.js"></script>
   <script src="js/site.js"></script>
 </body>

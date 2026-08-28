@@ -15,6 +15,43 @@
   };
   window.TV_CONFIG = CONFIG;
 
+  /* ---------- Sprachwechsel Deutsch / Englisch ---------- */
+  function setupLanguageSwitch() {
+    var nav = document.querySelector(".main-nav");
+    if (!nav || nav.querySelector(".lang-switch")) return;
+
+    var isEnglish = document.documentElement.lang.toLowerCase().indexOf("en") === 0;
+    var path = window.location.pathname || "/";
+    var targetPath;
+
+    if (isEnglish) {
+      targetPath = path.replace(/^\/en(?=\/|$)/, "") || "/";
+    } else {
+      targetPath = path === "/" ? "/en/" : "/en" + path;
+    }
+
+    var link = document.createElement("a");
+    link.className = "lang-switch";
+    link.href = targetPath + window.location.search + window.location.hash;
+    link.hreflang = isEnglish ? "de" : "en";
+    link.lang = isEnglish ? "de" : "en";
+    link.textContent = isEnglish ? "🇩🇪 DE" : "🇬🇧 EN";
+    link.setAttribute("aria-label", isEnglish ? "Zur deutschen Version wechseln" : "Switch to the English version");
+
+    var subscribe = nav.querySelector(".btn-terra");
+    nav.insertBefore(link, subscribe || null);
+
+    var targetLanguage = isEnglish ? "de" : "en";
+    if (!document.head.querySelector('link[rel="alternate"][hreflang="' + targetLanguage + '"]')) {
+      var alternate = document.createElement("link");
+      alternate.rel = "alternate";
+      alternate.hreflang = targetLanguage;
+      alternate.href = new URL(targetPath, window.location.origin).href;
+      document.head.appendChild(alternate);
+    }
+  }
+  setupLanguageSwitch();
+
   /* ---------- kleiner Bulli als SVG (Seitenansicht, faehrt nach rechts) ---------- */
   var BULLI_SVG =
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 62" class="bulli-svg">' +
