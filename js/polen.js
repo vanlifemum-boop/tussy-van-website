@@ -665,8 +665,11 @@ window.POLEN_STATUS = {
 (function () {
   "use strict";
   var NS = "http://www.w3.org/2000/svg";
-  var data = (window.POLEN_DATA || []).concat(window.POLEN_CAMPER || []);
+  var data = (window.POLEN_DATA || [])
+    .concat(window.POLEN_CAMPER || [])
+    .concat(window.POLEN_NATURPLAETZE || []);
   var STATUS = window.POLEN_STATUS;
+  var english = document.documentElement.lang.toLowerCase().indexOf("en") === 0;
 
   // Kategorie-Lookup key -> {icon,label}
   var KAT = {};
@@ -746,11 +749,25 @@ window.POLEN_STATUS = {
     }
     return place.url || "#";
   }
+  function placeName(place) { return english && place.nameEn ? place.nameEn : place.name; }
+  function placeBlurb(place) { return english && place.blurbEn ? place.blurbEn : place.blurb; }
+  function placeMeta(place) { return english && place.metaEn ? place.metaEn : place.meta; }
+  function escapeHtml(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
 
   /* --- Kacheln (Beiträge / Ziele) rendern --- */
   data.forEach(function (d) {
     var km = katMeta(d.kat);
     var st = STATUS[d.status] || STATUS.ziel;
+    var displayName = placeName(d);
+    var displayBlurb = placeBlurb(d);
+    var displayMeta = placeMeta(d);
     var a = document.createElement("a");
     var href = placeUrl(d);
     a.className = "post-card";
@@ -759,14 +776,15 @@ window.POLEN_STATUS = {
     if (/^https?:/.test(href)) { a.target = "_blank"; a.rel = "noopener"; }
     a.setAttribute("data-region", d.region);
     a.setAttribute("data-kat", d.kat || "");
-    a.setAttribute("data-text", (d.name + " " + d.blurb + " " + d.meta + " " + km.label + " " +
+    a.setAttribute("data-text", (displayName + " " + displayBlurb + " " + displayMeta + " " +
+      (d.nameEn || "") + " " + (d.blurbEn || "") + " " + (d.metaEn || "") + " " + km.label + " " +
       (d.lat || "") + " " + (d.lon || "")).toLowerCase());
     var badge = d.status === "ziel" ? " · bald mehr" : "";
     a.innerHTML =
-      '<span class="cat sticker ' + st.tag + '">' + km.icon + " " + st.label + badge + "</span>" +
-      "<h3>" + d.name + "</h3>" +
-      "<p>" + d.blurb + "</p>" +
-      '<span class="meta">' + d.meta + "</span>";
+      '<span class="cat sticker ' + escapeHtml(st.tag) + '">' + escapeHtml(km.icon + " " + st.label + badge) + "</span>" +
+      "<h3>" + escapeHtml(displayName) + "</h3>" +
+      "<p>" + escapeHtml(displayBlurb) + "</p>" +
+      '<span class="meta">' + escapeHtml(displayMeta) + "</span>";
     grid.appendChild(a);
   });
 
@@ -818,7 +836,6 @@ window.POLEN_STATUS = {
 
   /* --- Legende rendern --- */
   if (legendBox) {
-    var english = document.documentElement.lang === "en";
     var html = '<p class="pl-legende-hint">' +
       (english ? "Select a symbol to show only matching places on the map." : "Klick auf ein Symbol, um nur passende Orte auf der Karte anzuzeigen.") +
       '</p><div class="pl-legende-status" role="group" aria-label="Markerstatus">' +
@@ -956,7 +973,7 @@ window.POLEN_STATUS = {
 
         var title = document.createElementNS(NS, "title");
         var stLabel = (STATUS[d.status] || STATUS.ziel).label;
-        title.textContent = d.name + " — " + km.label + " (" + stLabel + ")";
+        title.textContent = placeName(d) + " — " + km.label + " (" + stLabel + ")";
         g.appendChild(title);
 
         // Dauer-Label nur für Städte; POIs zeigen den Namen per Tooltip + in der Kachel.
@@ -967,7 +984,7 @@ window.POLEN_STATUS = {
           t.setAttribute("x", right ? 11 : -11);
           t.setAttribute("y", (d.ly || 0) + 2.2);
           t.setAttribute("text-anchor", right ? "start" : "end");
-          t.textContent = d.short || d.name;
+          t.textContent = d.short || placeName(d);
           g.appendChild(t);
         }
 
