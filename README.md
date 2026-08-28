@@ -49,3 +49,38 @@ Nav-Link ergänzen).
 - Europakarte: aus Natural-Earth-Daten generiert (Public Domain), Route/Bulli in `js/site.js`
 - SEO: Meta/OG-Tags, JSON-LD, `sitemap.xml`, `robots.txt`
 - Der kleine Bulli am rechten Seitenrand fährt mit dem Scroll-Fortschritt
+
+## Englische Sprachversion aktualisieren
+
+Alle deutschen HTML-Seiten haben ein vollständiges Gegenstück unter `/en/`.
+Neue oder geänderte Beiträge werden samt internen Links, Metadaten und den
+dynamisch erzeugten Karteninhalten mit diesem Befehl aktualisiert:
+
+```bash
+python3 scripts/generate_english_site.py
+```
+
+Die Übersetzungen werden lokal in `scripts/translations-de-en.json` gespeichert;
+dieser Cache wird nicht veröffentlicht. Mit `--offline` lässt sich anschließend
+prüfen, ob der lokale Übersetzungsspeicher vollständig ist, ohne eine
+Netzwerkverbindung zu verwenden. Die englischen Rechtsseiten verweisen bewusst
+auf die maßgeblichen deutschen Originalseiten, damit persönliche Angaben nicht
+in zusätzlichen Dateien dupliziert werden.
+
+## Europa-Entsorgungsdaten aktualisieren
+
+`scripts/import_entsorgungsstationen.py` liest die enthaltene Bordatlas-PDF,
+entfernt Dubletten und ergänzt nur Stationen, die nicht schon in der
+handkuratierten Liste stehen. Für die näherungsweisen Kartenpositionen werden
+lokale GeoNames-Exporte `allCountries.txt` (Postleitzahlen) und `cities1000.txt`
+(Ortsnamen) benötigt:
+
+```bash
+python3 scripts/import_entsorgungsstationen.py \
+  --postal-data /pfad/zu/allCountries.txt \
+  --cities-data /pfad/zu/cities1000.txt
+```
+
+Die generierte Datei ist `js/entsorgung-europa-bordatlas.js`. Die Quelldaten
+haben den Stand 2020; Verfügbarkeit und Ausstattung müssen vor der Anfahrt
+geprüft werden.

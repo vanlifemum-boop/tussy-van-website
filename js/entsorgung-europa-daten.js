@@ -1,6 +1,6 @@
-/* Automatisch generierte Europa-Entsorgungsstationen (kuratierte Auswahl).
+/* Handkuratierte Ergänzungen zur importierten Bordatlas-Liste.
    Quelle der Ortsdaten: eigene Recherche/Bordatlas-Verzeichnis — Angaben ohne Gewähr. */
-window.EU_LAENDER = {"DE":"🇩🇪 Deutschland","AT":"🇦🇹 Österreich","CH":"🇨🇭 Schweiz","IT":"🇮🇹 Italien","FR":"🇫🇷 Frankreich","ES":"🇪🇸 Spanien","PT":"🇵🇹 Portugal","HR":"🇭🇷 Kroatien","SI":"🇸🇮 Slowenien","NL":"🇳🇱 Niederlande","BE":"🇧🇪 Belgien","LU":"🇱🇺 Luxemburg","DK":"🇩🇰 Dänemark","SE":"🇸🇪 Schweden","NO":"🇳🇴 Norwegen","CZ":"🇨🇿 Tschechien","HU":"🇭🇺 Ungarn","PL":"🇵🇱 Polen"};
+window.EU_LAENDER = {"AL":"🇦🇱 Albanien","AT":"🇦🇹 Österreich","BA":"🇧🇦 Bosnien und Herzegowina","BE":"🇧🇪 Belgien","CH":"🇨🇭 Schweiz","CZ":"🇨🇿 Tschechien","DE":"🇩🇪 Deutschland","DK":"🇩🇰 Dänemark","EE":"🇪🇪 Estland","ES":"🇪🇸 Spanien","FI":"🇫🇮 Finnland","FO":"🇫🇴 Färöer","FR":"🇫🇷 Frankreich","GB":"🇬🇧 Vereinigtes Königreich","GR":"🇬🇷 Griechenland","HR":"🇭🇷 Kroatien","HU":"🇭🇺 Ungarn","IE":"🇮🇪 Irland","IS":"🇮🇸 Island","IT":"🇮🇹 Italien","LI":"🇱🇮 Liechtenstein","LT":"🇱🇹 Litauen","LU":"🇱🇺 Luxemburg","LV":"🇱🇻 Lettland","MK":"🇲🇰 Nordmazedonien","NL":"🇳🇱 Niederlande","NO":"🇳🇴 Norwegen","PL":"🇵🇱 Polen","PT":"🇵🇹 Portugal","RO":"🇷🇴 Rumänien","RS":"🇷🇸 Serbien","SE":"🇸🇪 Schweden","SI":"🇸🇮 Slowenien","SK":"🇸🇰 Slowakei","SM":"🇸🇲 San Marino","TR":"🇹🇷 Türkei"};
 window.EU_STATIONEN = [
   { cc: "DE", city: "Lindau (Bodensee)", name: "Stellplatz P1 Blauwiese", x: 410.4, y: 512.7, q: "Stellplatz P1 Blauwiese Lindau" },
   { cc: "DE", city: "Ettenheim", name: "Caravan-Center Ernst", x: 383, y: 495.9, q: "Caravan Freizeitcenter Ernst Ettenheim" },
