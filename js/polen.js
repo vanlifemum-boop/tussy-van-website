@@ -674,7 +674,10 @@ window.POLEN_STATUS = {
     grp.items.forEach(function (it) { KAT[it.key] = it; });
   });
 
-  var state = { region: "alle", kats: {}, query: "" }; // kats: Set als Objekt, leer = alle
+  var state = { region: "alle", kats: {}, statuses: {}, query: "" }; // Filter-Sets als Objekt, leer = alle
+  var categoryButtons = {};
+  var legendCategoryButtons = {};
+  var legendStatusButtons = {};
   // data-preselect-kat="entsorgung" (auch kommagetrennt) am Karten-Container
   // aktiviert Kategorien schon beim Laden — z. B. für die Entsorgungs-Seite.
   var preEl = document.querySelector("[data-preselect-kat]");
@@ -699,6 +702,43 @@ window.POLEN_STATUS = {
 
   function katMeta(k) { return KAT[k] || { icon: "📍", label: k || "Ort" }; }
   function noKatFilter() { return Object.keys(state.kats).length === 0; }
+  function noStatusFilter() { return Object.keys(state.statuses).length === 0; }
+  function clearFilterSet(set) {
+    Object.keys(set).forEach(function (key) { delete set[key]; });
+  }
+  function syncLegendFilters() {
+    Object.keys(categoryButtons).forEach(function (key) {
+      var active = !!state.kats[key];
+      categoryButtons[key].classList.toggle("active", active);
+      categoryButtons[key].setAttribute("aria-pressed", String(active));
+    });
+    Object.keys(legendCategoryButtons).forEach(function (key) {
+      var active = !!state.kats[key];
+      legendCategoryButtons[key].classList.toggle("active", active);
+      legendCategoryButtons[key].setAttribute("aria-pressed", String(active));
+    });
+    Object.keys(legendStatusButtons).forEach(function (key) {
+      var active = !!state.statuses[key];
+      legendStatusButtons[key].classList.toggle("active", active);
+      legendStatusButtons[key].setAttribute("aria-pressed", String(active));
+    });
+  }
+  function selectLegendCategory(key) {
+    var alreadyOnly = Object.keys(state.kats).length === 1 && !!state.kats[key] && noStatusFilter();
+    clearFilterSet(state.kats);
+    clearFilterSet(state.statuses);
+    if (!alreadyOnly) state.kats[key] = true;
+    syncLegendFilters();
+    apply();
+  }
+  function selectLegendStatus(key) {
+    var alreadyOnly = Object.keys(state.statuses).length === 1 && !!state.statuses[key] && noKatFilter();
+    clearFilterSet(state.kats);
+    clearFilterSet(state.statuses);
+    if (!alreadyOnly) state.statuses[key] = true;
+    syncLegendFilters();
+    apply();
+  }
   function placeUrl(place) {
     if (typeof place.lat === "number" && typeof place.lon === "number") {
       return "https://www.google.com/maps/search/?api=1&query=" +
@@ -736,6 +776,7 @@ window.POLEN_STATUS = {
       var has = r.key === "alle" || data.some(function (d) { return d.region === r.key; });
       if (!has) return;
       var b = document.createElement("button");
+      b.type = "button";
       b.className = "chip" + (r.key === "alle" ? " active" : "");
       b.textContent = r.label;
       b.setAttribute("data-region", r.key);
@@ -759,12 +800,16 @@ window.POLEN_STATUS = {
     });
     present.forEach(function (it) {
       var b = document.createElement("button");
+      b.type = "button";
       b.className = "chip chip-kat" + (state.kats[it.key] ? " active" : "");
       b.innerHTML = it.icon + " " + it.label;
       b.setAttribute("data-kat", it.key);
+      b.setAttribute("aria-pressed", String(!!state.kats[it.key]));
+      categoryButtons[it.key] = b;
       b.addEventListener("click", function () {
-        if (state.kats[it.key]) { delete state.kats[it.key]; b.classList.remove("active"); }
-        else { state.kats[it.key] = true; b.classList.add("active"); }
+        if (state.kats[it.key]) delete state.kats[it.key];
+        else state.kats[it.key] = true;
+        syncLegendFilters();
         apply();
       });
       katRow.appendChild(b);
@@ -773,19 +818,45 @@ window.POLEN_STATUS = {
 
   /* --- Legende rendern --- */
   if (legendBox) {
-    var html = '<div class="pl-legende-status">' +
-      '<span><i class="pl-dot bericht"></i> 💛 mein Reisebericht</span>' +
-      '<span><i class="pl-dot sehenswert"></i> Sehenswertes</span>' +
-      '<span><i class="pl-dot ziel"></i> Reiseziel</span>' +
+    var english = document.documentElement.lang === "en";
+    var html = '<p class="pl-legende-hint">' +
+      (english ? "Select a symbol to show only matching places on the map." : "Klick auf ein Symbol, um nur passende Orte auf der Karte anzuzeigen.") +
+      '</p><div class="pl-legende-status" role="group" aria-label="Markerstatus">' +
+      '<button type="button" class="pl-legend-filter" data-legend-status="bericht" aria-pressed="false"><i class="pl-dot bericht"></i> 💛 mein Reisebericht</button>' +
+      '<button type="button" class="pl-legend-filter" data-legend-status="sehenswert" aria-pressed="false"><i class="pl-dot sehenswert"></i> Sehenswertes</button>' +
+      '<button type="button" class="pl-legend-filter" data-legend-status="ziel" aria-pressed="false"><i class="pl-dot ziel"></i> Reiseziel</button>' +
       '</div>';
     (window.POLEN_KATEGORIEN || []).forEach(function (grp) {
       html += '<div class="pl-legende-grp"><b>' + grp.group + '</b><ul>';
       grp.items.forEach(function (it) {
-        html += '<li><span class="pl-lg-icon">' + it.icon + '</span>' + it.label + "</li>";
+        html += '<li><button type="button" class="pl-legend-filter" data-legend-kat="' + it.key + '" aria-pressed="false"><span class="pl-lg-icon">' + it.icon + '</span>' + it.label + "</button></li>";
       });
       html += "</ul></div>";
     });
+    html += '<button type="button" class="pl-legend-reset">' +
+      (english ? "Reset legend filter" : "Legendenfilter zurücksetzen") +
+      '</button>';
     legendBox.innerHTML = html;
+    legendBox.querySelectorAll("[data-legend-kat]").forEach(function (button) {
+      var key = button.getAttribute("data-legend-kat");
+      legendCategoryButtons[key] = button;
+      button.addEventListener("click", function () { selectLegendCategory(key); });
+    });
+    legendBox.querySelectorAll("[data-legend-status]").forEach(function (button) {
+      var key = button.getAttribute("data-legend-status");
+      legendStatusButtons[key] = button;
+      button.addEventListener("click", function () { selectLegendStatus(key); });
+    });
+    var resetLegend = legendBox.querySelector(".pl-legend-reset");
+    if (resetLegend) {
+      resetLegend.addEventListener("click", function () {
+        clearFilterSet(state.kats);
+        clearFilterSet(state.statuses);
+        syncLegendFilters();
+        apply();
+      });
+    }
+    syncLegendFilters();
   }
 
   /* --- Suche --- */
@@ -797,16 +868,17 @@ window.POLEN_STATUS = {
   }
 
   function apply() {
-    var filtering = state.region !== "alle" || !noKatFilter() || state.query !== "";
+    var filtering = state.region !== "alle" || !noKatFilter() || !noStatusFilter() || state.query !== "";
     var visible = 0;
     data.forEach(function (d) {
       var card = document.getElementById("pl-card-" + d.id);
       var okRegion = state.region === "alle" || d.region === state.region;
       var okKat = noKatFilter() || !!state.kats[d.kat];
+      var okStatus = noStatusFilter() || !!state.statuses[d.status];
       var okQuery = !state.query || card.getAttribute("data-text").indexOf(state.query) !== -1;
       // Camper-Punkte nur zeigen, wenn gefiltert/gesucht wird — sonst nur die Highlights.
       var camperOk = !CAMPER_KATS[d.kat] || filtering;
-      var show = okRegion && okKat && okQuery && camperOk;
+      var show = okRegion && okKat && okStatus && okQuery && camperOk;
       card.classList.toggle("hide", !show);
       if (show) visible++;
       var pin = document.getElementById("pl-pin-" + d.id);

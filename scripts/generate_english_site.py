@@ -49,7 +49,10 @@ LEGAL_PAGES = {
 
 SKIP_TAGS = {"script", "style", "code", "pre", "noscript", "svg", "path"}
 TEXT_ATTRS = {"alt", "aria-label", "placeholder", "title"}
-URL_ATTRS = {"href", "src", "poster", "data-map", "data-points", "data-dest-base"}
+URL_ATTRS = {
+    "href", "src", "poster", "data-map", "data-points", "data-dest-base",
+    "data-eu-map", "data-pl-map",
+}
 
 PROTECTED_TERMS = {
     "Tussy Van": "ZXQTVBRANDQXZ",
