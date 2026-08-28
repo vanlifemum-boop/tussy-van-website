@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://tussy-van.de/en/entsorgung.html"><link rel="alternate" hreflang="en" href="https://tussy-van.de/en/entsorgung.html"><link rel="alternate" hreflang="de" href="https://tussy-van.de/entsorgung.html"><link rel="alternate" hreflang="x-default" href="https://tussy-van.de/entsorgung.html"><title>Where can I empty my toilet? Waste disposal stations in Poland - Tussy Van</title>
-  <meta name="description" content="Dispose of chemical toilets, cassettes &amp; gray water in Poland: interactive map with disposal stations, toilet bus rest areas (MOP) and camper service points - plus free fresh water.">
+  <link rel="canonical" href="https://tussy-van.de/en/entsorgung.html"><link rel="alternate" hreflang="en" href="https://tussy-van.de/en/entsorgung.html"><link rel="alternate" hreflang="de" href="https://tussy-van.de/entsorgung.html"><link rel="alternate" hreflang="x-default" href="https://tussy-van.de/entsorgung.html"><title>Waste disposal stations in Europe — 5,356 locations | Tussy Van</title>
+  <meta name="description" content="5,356 motorhome and camper waste disposal stations across 36 European countries, with an interactive map, country filters and location search.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%231b49c8'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='6'%20fill='%23ffff00'/%3E%3Cg%20stroke='%23ffff00'%20stroke-width='2.2'%20stroke-linecap='round'%3E%3Cpath%20d='M16%204v3M16%2025v3M4%2016h3M25%2016h3M7.5%207.5l2%202M22.5%2022.5l2%202M24.5%207.5l-2%202M9.5%2022.5l-2%202'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="stylesheet" href="../css/site.css">
 </head>
@@ -31,17 +31,38 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Supply &amp; disposal 🚽</span>
-        <h1 class="display-xl">Where can I empty my toilet?</h1>
-        <span class="hand">Disposing of chemical toilets, cassettes and gray water in Poland</span>
-        <p class="lead" style="margin-top:1rem;max-width:44em">The question of all questions on the road - and easier to answer in Poland than many people think: There are many rest areas (MOPs) on motorways and expressways <b>WC bus stations</b>, where you can use your chemical toilet empty and <b>free fresh water</b> you can refuel. There are also camper service points and campsites throughout the country. You can find my collected disposal and service points on the map - click on a pin or search for your location.</p>
+        <h1 class="display-xl">Waste disposal stations in Europe</h1>
+        <span class="hand">5,356 stations across 36 countries</span>
+        <p class="lead" style="margin-top:1rem;max-width:48em">Find stations for toilet cassettes and greywater throughout Europe. Choose a country on the map or search directly by town, postcode or station name.</p>
+      </div>
+
+      <div class="europa-stations reveal" id="europa">
+        <p>The complete collection combines the <b>“Waste Disposal Stations Europe” Bordatlas list (2020)</b> with my hand-picked additions. Map positions are approximated from the postcode and town; clicking a pin opens the full address in Google Maps.</p>
+        <div class="dest-filter" data-eu-filter aria-label="Filter waste disposal stations by country"></div>
+        <div class="eu-mapwrap">
+          <div data-eu-map="../img/europe-map.svg" aria-label="Map of Europe with waste disposal stations for campers"></div>
+        </div>
+        <p class="eu-count" data-eu-count></p>
+        <div class="eu-searchbox">
+          <label for="eu-station-search"><b>Find a station</b></label>
+          <input id="eu-station-search" data-eu-search type="search" placeholder="Town, postcode or station name" autocomplete="off">
+        </div>
+        <div class="eu-results" data-eu-list aria-live="polite"></div>
+        <p class="eu-source">Address data: Bordatlas 2020 · Map positions: <a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>) · Please verify details before travelling.</p>
+      </div>
+
+      <div class="section-head subsection-head reveal" id="polen">
+        <span class="eyebrow">Poland in detail 🇵🇱</span>
+        <h2 class="display-lg">MOPs &amp; camper services in Poland</h2>
+        <p class="lead">Many Polish motorway and expressway rest areas have WC bus stations for chemical toilets and greywater. The specialist map below shows these stops together with other camper services.</p>
       </div>
 
       <div class="pl-layout">
         <div class="pl-mapwrap reveal">
-          <div data-pl-map="img/europe-map.svg" data-preselect-kat="entsorgung,camperservice" aria-label="Map of Poland with disposal stations for Camper"></div>
+          <div data-pl-map="../img/europe-map.svg" data-preselect-kat="entsorgung,camperservice" aria-label="Map of Poland with disposal stations for Camper"></div>
           <div class="hint" style="justify-content:center">📍 Pre-filtered: 🚽 supply/disposal &amp; 🆑 camper service. You can display additional points using the categories.</div>
           <details class="pl-legende">
-            <summary>Legend &amp; Categories</summary>
+            <summary>Select from the legend &amp; categories</summary>
             <div data-pl-legende></div>
           </details>
         </div>
@@ -65,26 +86,10 @@
         <ul>
           <li><b>The toilet cassette</b> is only emptied at designated chemical toilet stations (toilet bus / camper service) - never in normal toilets, sinks or drains. Then rinse thoroughly and leave the station clean.</li>
           <li><b>Greywater</b> (dishwashing and shower water) belongs in the designated floor inlet - not on the meadow, in the forest or the street drain. Even “just dishwashing water” contains fats and surfactants.</li>
-          <li><b>Fresh water</b> you fill at the same stations - but only with your own, food-safe hose. Water is free at many Polish MOPs.</li>
+          <li><b>Fresh water</b> should only be filled at approved taps using your own food-safe hose. Check the local signs to confirm whether the water is suitable for drinking.</li>
           <li><b>Information without Guarantee:</b> Equipment can change - check the signs briefly on site.</li>
         </ul>
         <p>More about Topic: <a href="blog/polen-legal-uebernachten.html">Where can you legally stay overnight in Poland →</a> · <a href="ratgeber/camping-knigge.html">The camping etiquette →</a> · <a href="blog/trockentrenntoilette-erfahrung.html">My experience with the dry separation toilet →</a></p>
-
-        <h2 id="europa">🌍 Waste disposal stations in Europe — the map</h2>
-        <p>Here you can find the complete inventory from the on-board atlas list <b>"Disposal stations Europe" (as of 2020)</b> plus my hand-picked additions. Click on a country to zoom in, or search by city and postal code. The pin positions are approximated from the zip code and city; the link opens the full address in Google Maps. Please check whether the station is still open before you arrive.</p>
-
-        <div class="dest-filter" data-eu-filter style="justify-content:center"></div>
-        <div class="eu-mapwrap">
-          <div data-eu-map="img/europe-map.svg" aria-label="Map of Europe with disposal stations for campers"></div>
-        </div>
-        <p class="eu-count" data-eu-count></p>
-        <p class="eu-source">Address data: Bordatlas 2020 · Map positions: <a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>)</p>
-
-        <div class="eu-searchbox">
-          <label for="eu-station-search"><b>Find station</b></label>
-          <input id="eu-station-search" data-eu-search type="search" placeholder="Town, zip code or station name" autocomplete="off">
-        </div>
-        <div class="eu-results" data-eu-list aria-live="polite"></div>
 
         <h3>My curated selection by country</h3>
 
