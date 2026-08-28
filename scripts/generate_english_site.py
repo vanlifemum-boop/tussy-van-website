@@ -83,6 +83,7 @@ MANUAL_TRANSLATIONS = {
     "Orte": "places",
     "Ort gefunden": "place found",
     "Orte gefunden": "places found",
+    "🏕️ Naturplätze sind Planungshinweise: Bitte Zufahrt, Beschilderung, Schutzgebiete und lokale Übernachtungsregeln vor Ort prüfen.": "🏕️ Nature spots are planning references: check access, signs, protected areas and local overnight rules on site.",
     "Mehr dazu →": "Read more →",
     "Mein Reisebericht": "My travel story",
     "Sehenswertes": "Worth seeing",
