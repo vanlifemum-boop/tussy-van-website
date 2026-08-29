@@ -281,6 +281,8 @@ h1, h2, h3 { font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-
 .pl-pin.dim { opacity: 0.28; }
 .pl-pin.pl-off { display: none; }
 .pl-pin .pl-lbl { font-family: var(--font); font-weight: 800; font-size: 6px; fill: var(--ink); paint-order: stroke; stroke: #ffffff; stroke-width: 1.6px; pointer-events: none; }
+.pl-map-cluster circle { fill: var(--neon); stroke: var(--ink); stroke-width: 2; }
+.pl-map-cluster text { fill: var(--ink); font-family: var(--font); font-size: 5px; font-weight: 900; pointer-events: none; }
 @keyframes plpulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.16); } }
 
 /* Kategorie-Filter-Chips */
@@ -326,6 +328,8 @@ h1, h2, h3 { font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-
 .pl-search::before { content: "🔍"; position: absolute; left: 1em; top: 50%; transform: translateY(-50%); font-size: 1rem; }
 .pl-count { font-size: 0.85rem; color: var(--muted); margin: 0 0 1.2rem; font-weight: 600; }
 .pl-grid { display: grid; gap: 1.3rem; }
+.pl-more { display: block; margin: 1.25rem auto 0; }
+.pl-more[hidden] { display: none; }
 .post-card.flash { animation: cardflash 1.7s ease; }
 @keyframes cardflash { 0%, 100% { box-shadow: var(--shadow-sticker); } 25%, 60% { box-shadow: 0 0 0 4px var(--neon), var(--shadow-sticker); } }
 .post-card.hide { display: none; }

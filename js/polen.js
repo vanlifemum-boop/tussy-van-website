@@ -624,46 +624,51 @@ window.POLEN_DATA = [
 ];
 
 window.POLEN_REGIONS = [
-  { key: "alle", label: "Alle Regionen" },
-  { key: "norden", label: "Norden & Ostsee" },
-  { key: "masuren", label: "Masuren" },
-  { key: "zentral", label: "Zentralpolen" },
-  { key: "westen", label: "Westen" },
-  { key: "sueden", label: "Süden" }
+  { key: "alle", label: "Alle Regionen", labelEn: "All regions" },
+  { key: "norden", label: "Norden & Ostsee", labelEn: "North & Baltic Sea" },
+  { key: "masuren", label: "Masuren", labelEn: "Masuria" },
+  { key: "zentral", label: "Zentralpolen", labelEn: "Central Poland" },
+  { key: "westen", label: "Westen", labelEn: "West" },
+  { key: "sueden", label: "Süden", labelEn: "South" }
 ];
 
 /* Kategorien-Legende (Icon + Label), zwei Gruppen. */
 window.POLEN_KATEGORIEN = [
-  { group: "🔎 Sehenswertes", items: [
-    { key: "stadt",    icon: "🏙️", label: "Städte & Regionen" },
-    { key: "sehens",   icon: "ℹ️", label: "Sehenswürdigkeiten" },
-    { key: "museum",   icon: "🏛️", label: "Museen & Gedenkstätten" },
-    { key: "burg",     icon: "🏰", label: "Burgen & Schlösser" },
-    { key: "sakral",   icon: "⛪", label: "Kirchen, Klöster & Wallfahrt" },
-    { key: "natur",    icon: "🏞️", label: "Natur & Aussicht" },
-    { key: "sonstige", icon: "⭐", label: "Sonstige Highlights" }
+  { group: "🔎 Sehenswertes", groupEn: "🔎 Sights", items: [
+    { key: "stadt",    icon: "🏙️", label: "Städte & Regionen", labelEn: "Cities & regions" },
+    { key: "sehens",   icon: "ℹ️", label: "Sehenswürdigkeiten", labelEn: "Attractions" },
+    { key: "museum",   icon: "🏛️", label: "Museen & Gedenkstätten", labelEn: "Museums & memorials" },
+    { key: "burg",     icon: "🏰", label: "Burgen & Schlösser", labelEn: "Castles & palaces" },
+    { key: "sakral",   icon: "⛪", label: "Kirchen, Klöster & Wallfahrt", labelEn: "Churches, monasteries & pilgrimage" },
+    { key: "natur",    icon: "🏞️", label: "Natur & Aussicht", labelEn: "Nature & viewpoints" },
+    { key: "sonstige", icon: "⭐", label: "Sonstige Highlights", labelEn: "Other highlights" }
   ]},
-  { group: "🚐 Für Camper", items: [
-    { key: "camping",       icon: "⛺", label: "Campingplatz" },
-    { key: "biwak",         icon: "🏕️", label: "Wildes Biwak / Naturplatz" },
-    { key: "waldpark",      icon: "🅿️", label: "Waldparkplatz" },
-    { key: "rastplatz",     icon: "🛣️", label: "Rastplatz (MOP)" },
-    { key: "dusche",        icon: "🚿", label: "Dusche" },
-    { key: "entsorgung",    icon: "🚽", label: "Ver-/Entsorgung" },
-    { key: "werkstatt",     icon: "🔧", label: "Camper-Werkstatt" },
-    { key: "waschsalon",    icon: "🧺", label: "Waschsalon" },
-    { key: "camperservice", icon: "🆑", label: "Camper-Service (CS)" }
+  { group: "🚐 Für Camper", groupEn: "🚐 For campers", items: [
+    { key: "camping",       icon: "⛺", label: "Campingplatz", labelEn: "Campsite" },
+    { key: "biwak",         icon: "🏕️", label: "Wildes Biwak / Naturplatz", labelEn: "Wild camp / nature spot" },
+    { key: "waldpark",      icon: "🅿️", label: "Waldparkplatz", labelEn: "Forest parking" },
+    { key: "rastplatz",     icon: "🛣️", label: "Rastplatz (MOP)", labelEn: "Motorway rest area (MOP)" },
+    { key: "dusche",        icon: "🚿", label: "Dusche", labelEn: "Shower" },
+    { key: "entsorgung",    icon: "🚽", label: "Ver-/Entsorgung", labelEn: "Water & waste service" },
+    { key: "werkstatt",     icon: "🔧", label: "Camper-Werkstatt", labelEn: "Camper workshop" },
+    { key: "waschsalon",    icon: "🧺", label: "Waschsalon", labelEn: "Laundromat" },
+    { key: "campersystem",  icon: "🚐", label: "Camper System", labelEn: "Camper System" },
+    { key: "camperservice", icon: "🆑", label: "Camper-Service (CS)", labelEn: "Camper service (CS)" }
   ]}
 ];
 
 window.POLEN_STATUS = {
-  bericht:    { label: "Mein Reisebericht", tag: "terra" },
-  sehenswert: { label: "Sehenswertes",      tag: "blue" },
-  ziel:       { label: "Reiseziel",         tag: "" }
+  bericht:    { label: "Mein Reisebericht", labelEn: "My travel story", tag: "terra" },
+  sehenswert: { label: "Sehenswertes",      labelEn: "Worth seeing", tag: "blue" },
+  ziel:       { label: "Reiseziel",         labelEn: "Destination", tag: "" }
 };
 
 (function () {
   "use strict";
+  if (typeof window.POLEN_MAP_APP_V2 === "function") {
+    window.POLEN_MAP_APP_V2();
+    return;
+  }
   var NS = "http://www.w3.org/2000/svg";
   var data = (window.POLEN_DATA || [])
     .concat(window.POLEN_CAMPER || [])
