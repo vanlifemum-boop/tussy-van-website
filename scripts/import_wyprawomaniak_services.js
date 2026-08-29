@@ -2,9 +2,10 @@
 "use strict";
 
 /*
- * Importiert öffentlich sichtbare GPS-Punkte für Waldparkplätze, Duschen,
- * Waschsalons und Camper-System-Stationen. Die Ausgabe bleibt absichtlich
- * kompakt: [Kategorie, Breitengrad, Längengrad, Region, nächster Ort, Typ].
+ * Importiert öffentlich sichtbare GPS-Punkte für Waldparkplätze, MOPs,
+ * Duschen, Waschsalons und Camper-System-Stationen. Die Ausgabe bleibt
+ * absichtlich kompakt: [Kategorie, Breitengrad, Längengrad, Region,
+ * nächster Ort, zusätzliche Kategorien].
  * Ungültige, doppelte und außerhalb Polens liegende Punkte werden verworfen.
  *
  * Standard: Daten direkt laden.
@@ -115,17 +116,20 @@ function regionFor(lat, lon) {
   return "zentral";
 }
 
-function categoryFor(amenity) {
-  const values = String(amenity || "").split(",");
-  if (amenity === "GrupaParking") return "waldpark";
-  if (values.indexOf("GrupaPrysznice") !== -1) return "dusche";
-  if (amenity === "GrupaPralkomat") return "waschsalon";
-  if (amenity === "GrupaCamperSystem") return "campersystem";
-  return "";
-}
-
-function showerType(amenity) {
-  return String(amenity || "").split(",").indexOf("GrupaMOP") !== -1 ? "mop" : "";
+function serviceFor(amenity) {
+  const values = String(amenity || "").split(",").filter(Boolean);
+  if (values.indexOf("GrupaMOP") !== -1) {
+    const extras = [];
+    if (values.indexOf("GrupaWC") !== -1) extras.push("wc");
+    if (values.indexOf("GrupaPrysznice") !== -1) extras.push("dusche");
+    if (values.indexOf("GrupaZrzut") !== -1) extras.push("entsorgung");
+    return { category: "rastplatz", extras: extras };
+  }
+  if (amenity === "GrupaParking") return { category: "waldpark", extras: [] };
+  if (amenity === "GrupaPrysznice") return { category: "dusche", extras: [] };
+  if (amenity === "GrupaPralkomat") return { category: "waschsalon", extras: [] };
+  if (amenity === "GrupaCamperSystem") return { category: "campersystem", extras: [] };
+  return null;
 }
 
 async function main() {
@@ -147,17 +151,24 @@ async function main() {
   const unique = new Map();
   sourceCollections.forEach(function (collection) {
     (collection.features || []).forEach(function (feature) {
-      const category = categoryFor(feature.properties && feature.properties.amenity);
-      if (!category) return;
-      rawCounts[category] = (rawCounts[category] || 0) + 1;
+      const service = serviceFor(feature.properties && feature.properties.amenity);
+      if (!service) return;
+      rawCounts[service.category] = (rawCounts[service.category] || 0) + 1;
       const coordinates = feature.geometry && feature.geometry.coordinates;
       if (!Array.isArray(coordinates) || coordinates.length < 2) return;
       const lon = Number(coordinates[0]);
       const lat = Number(coordinates[1]);
       if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
       if (!pointInGeometry([lon, lat], poland)) return;
-      const key = category + ":" + lat.toFixed(5) + "," + lon.toFixed(5);
-      if (!unique.has(key)) unique.set(key, { category: category, feature: feature, lat: lat, lon: lon });
+      const key = service.category + ":" + lat.toFixed(5) + "," + lon.toFixed(5);
+      if (!unique.has(key)) {
+        unique.set(key, {
+          category: service.category,
+          extras: service.extras,
+          lat: lat,
+          lon: lon
+        });
+      }
     });
   });
 
@@ -170,10 +181,7 @@ async function main() {
       regionFor(point.lat, point.lon),
       city
     ];
-    if (point.category === "dusche") {
-      const type = showerType(point.feature.properties.amenity);
-      if (type) tuple.push(type);
-    }
+    if (point.extras.length) tuple.push(point.extras.join(","));
     return tuple;
   }).sort(function (a, b) {
     return a[0].localeCompare(b[0]) || a[4].localeCompare(b[4], "pl") || a[1] - b[1] || a[2] - b[2];
@@ -183,23 +191,37 @@ async function main() {
     result[row[0]] = (result[row[0]] || 0) + 1;
     return result;
   }, {});
-  const minimums = { waldpark: 3000, dusche: 250, waschsalon: 70, campersystem: 100 };
+  const minimums = { waldpark: 3000, rastplatz: 400, dusche: 20, waschsalon: 70, campersystem: 100 };
   Object.keys(minimums).forEach(function (category) {
     if ((counts[category] || 0) < minimums[category]) {
       throw new Error("Import abgebrochen: nur " + (counts[category] || 0) + " Punkte für " + category);
     }
   });
 
+  const amenityCounts = records.reduce(function (result, row) {
+    const categories = [row[0]].concat(String(row[5] || "").split(",").filter(Boolean));
+    categories.forEach(function (category) {
+      result[category] = (result[category] || 0) + 1;
+    });
+    return result;
+  }, {});
+  if ((amenityCounts.wc || 0) < 400 || (amenityCounts.dusche || 0) < 300 ||
+      (amenityCounts.entsorgung || 0) < 200) {
+    throw new Error("Import abgebrochen: MOP-Ausstattung unvollständig — " + JSON.stringify(amenityCounts));
+  }
+
   const header = [
     "/* Automatisch erzeugt mit scripts/import_wyprawomaniak_services.js.",
     "   Stand: " + RETRIEVED_AT + " · " + records.length + " gültige, eindeutige GPS-Punkte in Polen.",
-    "   Schema: [Kategorie, Breitengrad, Längengrad, Region, nächster Ort, optionaler Typ]. */"
+    "   Schema: [Kategorie, Breitengrad, Längengrad, Region, nächster Ort, zusätzliche Kategorien]. */",
+    "window.POLEN_SERVICE_DATA_DATE = " + JSON.stringify(RETRIEVED_AT) + ";"
   ].join("\n");
   const rows = records.map(function (row) { return "  " + JSON.stringify(row); }).join(",\n");
   fs.writeFileSync(TARGET, header + "\nwindow.POLEN_SERVICE_POINTS = [\n" + rows + "\n];\n", "utf8");
 
   console.log("Geprüft:", rawCounts);
   console.log("Für Polen geschrieben:", counts, "Gesamt:", records.length);
+  console.log("Filterbare Ausstattung:", amenityCounts);
 }
 
 main().catch(function (error) {

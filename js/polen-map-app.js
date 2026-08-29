@@ -7,6 +7,8 @@ window.POLEN_MAP_APP_V2 = function () {
   var english = document.documentElement.lang.toLowerCase().indexOf("en") === 0;
   var RESULT_BATCH = 80;
   var MAP_CLUSTER_THRESHOLD = 220;
+  var BASE_VIEW = { x: 450, y: 332, width: 182, height: 162 };
+  var mapView = { x: BASE_VIEW.x, y: BASE_VIEW.y, width: BASE_VIEW.width, height: BASE_VIEW.height };
 
   function mapPosition(lat, lon) {
     return {
@@ -19,12 +21,10 @@ window.POLEN_MAP_APP_V2 = function () {
     return Number(value).toFixed(5).replace(/-/g, "m").replace(".", "-");
   }
 
-  function serviceName(category, city, subtype, useEnglish) {
+  function serviceName(category, city, useEnglish) {
     if (category === "waldpark") return (useEnglish ? "Forest parking near " : "Waldparkplatz bei ") + city;
-    if (category === "dusche") {
-      if (subtype === "mop") return (useEnglish ? "Shower at a rest area near " : "Dusche am Rastplatz bei ") + city;
-      return (useEnglish ? "Shower near " : "Dusche bei ") + city;
-    }
+    if (category === "rastplatz") return (useEnglish ? "MOP rest area near " : "MOP-Rastplatz bei ") + city;
+    if (category === "dusche") return (useEnglish ? "Shower near " : "Dusche bei ") + city;
     if (category === "waschsalon") return (useEnglish ? "Laundromat near " : "Waschsalon bei ") + city;
     if (category === "campersystem") return (useEnglish ? "Camper System station near " : "Camper-System-Station bei ") + city;
     return (useEnglish ? "Camper point near " : "Camper-Punkt bei ") + city;
@@ -35,22 +35,24 @@ window.POLEN_MAP_APP_V2 = function () {
     var lat = Number(row[1]);
     var lon = Number(row[2]);
     var city = String(row[4] || "Polen");
-    var subtype = String(row[5] || "");
+    var extras = String(row[5] || "").split(",").filter(Boolean);
+    var categories = [category].concat(extras.filter(function (key) { return key !== category; }));
     var position = mapPosition(lat, lon);
     return {
       id: "service-" + category + "-" + coordinateId(lat) + "-" + coordinateId(lon),
-      name: serviceName(category, city, subtype, false),
-      nameEn: serviceName(category, city, subtype, true),
+      name: serviceName(category, city, false),
+      nameEn: serviceName(category, city, true),
       city: city,
       region: String(row[3] || "zentral"),
       kat: category,
+      kats: categories,
       status: "sehenswert",
       x: position.x,
       y: position.y,
       lat: lat,
       lon: lon,
       servicePoint: true,
-      serviceSubtype: subtype
+      dataDate: String(window.POLEN_SERVICE_DATA_DATE || "")
     };
   }
 
@@ -59,6 +61,9 @@ window.POLEN_MAP_APP_V2 = function () {
     .concat(window.POLEN_CAMPER || [])
     .concat(window.POLEN_NATURPLAETZE || [])
     .concat(serviceData);
+  data.forEach(function (place) {
+    if (!Array.isArray(place.kats) || !place.kats.length) place.kats = [place.kat];
+  });
   var STATUS = window.POLEN_STATUS || {};
 
   var KAT = {};
@@ -74,6 +79,7 @@ window.POLEN_MAP_APP_V2 = function () {
   var renderLimit = RESULT_BATCH;
   var mapSvg = null;
   var pinLayer = null;
+  var zoomControls = null;
 
   var mapStage = document.querySelector("[data-pl-map]");
   var grid = document.querySelector("[data-pl-grid]");
@@ -105,9 +111,8 @@ window.POLEN_MAP_APP_V2 = function () {
     var near = useEnglish ? "Near " : "Nähe ";
     var suffix = {
       waldpark: useEnglish ? "GPS forest parking" : "GPS-Waldparkplatz",
-      dusche: place.serviceSubtype === "mop"
-        ? (useEnglish ? "Rest-area shower" : "Rastplatz-Dusche")
-        : (useEnglish ? "GPS shower" : "GPS-Dusche"),
+      rastplatz: useEnglish ? "GPS motorway rest area" : "GPS-MOP-Rastplatz",
+      dusche: useEnglish ? "GPS shower" : "GPS-Dusche",
       waschsalon: useEnglish ? "GPS laundromat" : "GPS-Waschsalon",
       campersystem: useEnglish ? "Camper System station" : "Camper-System-Station"
     };
@@ -121,6 +126,16 @@ window.POLEN_MAP_APP_V2 = function () {
       return useEnglish
         ? "GPS planning point for forest parking near " + place.city + ". Access, parking rules and possible overnight stays are not verified; check local signs and forest regulations."
         : "GPS-Planungspunkt für einen Waldparkplatz nahe " + place.city + ". Zufahrt, Parkregeln und eine mögliche Übernachtung sind nicht verifiziert — Beschilderung und örtliche Waldregeln prüfen.";
+    }
+    if (place.kat === "rastplatz") {
+      var amenities = place.kats.filter(function (key) { return key !== "rastplatz"; }).map(function (key) {
+        var category = katMeta(key);
+        return useEnglish && category.labelEn ? category.labelEn : category.label;
+      });
+      var equipment = amenities.length ? amenities.join(", ") : (useEnglish ? "no additional equipment recorded" : "keine weitere Ausstattung erfasst");
+      return useEnglish
+        ? "GPS planning point for an MOP rest area near " + place.city + ". Recorded equipment: " + equipment + ". Fresh water, fees and current operation are not confirmed; check the signs on site."
+        : "GPS-Planungspunkt für einen MOP-Rastplatz nahe " + place.city + ". Erfasste Ausstattung: " + equipment + ". Frischwasser, Gebühren und aktueller Betrieb sind nicht bestätigt — bitte Beschilderung vor Ort prüfen.";
     }
     if (place.kat === "dusche") {
       return useEnglish
@@ -164,6 +179,21 @@ window.POLEN_MAP_APP_V2 = function () {
     return place.url || "#";
   }
 
+  function directionsUrl(place) {
+    if (typeof place.lat !== "number" || typeof place.lon !== "number") return "";
+    return "https://www.google.com/maps/dir/?api=1&destination=" +
+      encodeURIComponent(place.lat + "," + place.lon) + "&travelmode=driving";
+  }
+
+  function reportUrl(place) {
+    var subject = (english ? "Map point report: " : "Kartenpunkt melden: ") + placeName(place);
+    var body = (english ? "Please check this map point:\n" : "Bitte diesen Kartenpunkt prüfen:\n") +
+      placeName(place) + "\n" +
+      (typeof place.lat === "number" ? "GPS: " + place.lat.toFixed(5) + ", " + place.lon.toFixed(5) + "\n" : "") +
+      (english ? "Reason / change: " : "Grund / Änderung: ");
+    return "mailto:tussyvan@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  }
+
   function escapeHtml(value) {
     return String(value == null ? "" : value)
       .replace(/&/g, "&amp;")
@@ -183,6 +213,16 @@ window.POLEN_MAP_APP_V2 = function () {
     Object.keys(set).forEach(function (key) { delete set[key]; });
   }
 
+  function placeHasCategory(place, key) {
+    return (place.kats || [place.kat]).indexOf(key) !== -1;
+  }
+
+  function placeCategories(place) {
+    return (place.kats || [place.kat]).filter(function (key, index, values) {
+      return key && values.indexOf(key) === index;
+    });
+  }
+
   var CAMPER_KATS = {
     camping: 1,
     camperservice: 1,
@@ -192,18 +232,20 @@ window.POLEN_MAP_APP_V2 = function () {
     waldpark: 1,
     biwak: 1,
     dusche: 1,
-    waschsalon: 1,
-    werkstatt: 1
+    wc: 1,
+    waschsalon: 1
   };
-  var camperTotal = data.filter(function (place) { return CAMPER_KATS[place.kat]; }).length;
+  var camperTotal = data.filter(function (place) {
+    return placeCategories(place).some(function (key) { return CAMPER_KATS[key]; });
+  }).length;
 
   data.forEach(function (place) {
-    var category = katMeta(place.kat);
+    var categories = placeCategories(place).map(katMeta);
     place._plSearch = [
       placeName(place, false), placeName(place, true),
       placeBlurb(place, false), placeBlurb(place, true),
       placeMeta(place, false), placeMeta(place, true),
-      category.label, category.labelEn,
+      categories.map(function (category) { return category.label + " " + category.labelEn; }).join(" "),
       place.city || "", place.lat || "", place.lon || ""
     ].join(" ").toLowerCase();
   });
@@ -220,25 +262,66 @@ window.POLEN_MAP_APP_V2 = function () {
     return localized(status || STATUS.ziel || { label: "Reiseziel", labelEn: "Destination" }, "label");
   }
 
+  function dateLabel(value) {
+    var parts = String(value || "").split("-");
+    if (parts.length !== 3) return "";
+    return english ? parts[2] + "/" + parts[1] + "/" + parts[0] : parts[2] + "." + parts[1] + "." + parts[0];
+  }
+
+  function seasonFact(place) {
+    var text = (place.meta || "") + " " + (place.metaEn || "") + " " + (place.blurb || "") + " " + (place.blurbEn || "");
+    if (/ganzj.hr|year.round/i.test(text)) return english ? "Open year-round" : "Ganzjährig";
+    if (/saisonal|seasonal/i.test(text)) return english ? "Seasonal" : "Saisonal";
+    return english ? "Check season" : "Saison prüfen";
+  }
+
+  function factsHtml(place) {
+    var facts = [];
+    if (place.servicePoint && place.kat === "rastplatz") {
+      placeCategories(place).forEach(function (key) {
+        var category = katMeta(key);
+        facts.push(category.icon + " " + localized(category, "label"));
+      });
+    }
+    if (placeCategories(place).some(function (key) { return CAMPER_KATS[key]; })) {
+      facts.push("📅 " + seasonFact(place));
+      facts.push("💶 " + (english ? "Check fees" : "Kosten prüfen"));
+      facts.push("🚐 " + (english ? "Check access" : "Zufahrt prüfen"));
+      if (place.servicePoint && place.dataDate) {
+        facts.push("🗓️ " + (english ? "Data as of " : "Datenstand ") + dateLabel(place.dataDate));
+      }
+      facts.push("⚠️ " + (english ? "Not checked on site" : "Vor Ort ungeprüft"));
+    }
+    if (!facts.length) return "";
+    return '<div class="pl-card-facts">' + facts.map(function (fact) {
+      return "<span>" + escapeHtml(fact) + "</span>";
+    }).join("") + "</div>";
+  }
+
   function createCard(place) {
     var category = katMeta(place.kat);
     var status = STATUS[place.status] || STATUS.ziel || { label: "Reiseziel", labelEn: "Destination", tag: "" };
     var displayName = placeName(place);
     var displayBlurb = placeBlurb(place);
     var displayMeta = placeMeta(place);
-    var card = document.createElement("a");
+    var card = document.createElement("article");
     var href = placeUrl(place);
     card.className = "post-card";
     card.id = "pl-card-" + place.id;
-    card.href = href;
-    if (/^https?:/.test(href)) { card.target = "_blank"; card.rel = "noopener"; }
     var badge = place.status === "ziel" ? (english ? " · more soon" : " · bald mehr") : "";
     card.innerHTML =
       '<span class="cat sticker ' + escapeHtml(status.tag || "") + '">' +
       escapeHtml(category.icon + " " + statusLabel(status) + badge) + "</span>" +
       "<h3>" + escapeHtml(displayName) + "</h3>" +
       "<p>" + escapeHtml(displayBlurb) + "</p>" +
-      '<span class="meta">' + escapeHtml(displayMeta) + "</span>";
+      '<span class="meta">' + escapeHtml(displayMeta) + "</span>" +
+      factsHtml(place) +
+      '<div class="pl-card-actions">' +
+      '<a class="pl-card-action primary" href="' + escapeHtml(href) + '"' + (/^https?:/.test(href) ? ' target="_blank" rel="noopener"' : "") + '>' +
+      (english ? "Open details" : "Details öffnen") + "</a>" +
+      (directionsUrl(place) ? '<a class="pl-card-action" href="' + escapeHtml(directionsUrl(place)) + '" target="_blank" rel="noopener">' + (english ? "Plan route" : "Route planen") + "</a>" : "") +
+      '<a class="pl-card-action report" href="' + escapeHtml(reportUrl(place)) + '">' + (english ? "Report change" : "Änderung melden") + "</a>" +
+      "</div>";
     return card;
   }
 
@@ -324,7 +407,7 @@ window.POLEN_MAP_APP_V2 = function () {
     var present = [];
     (window.POLEN_KATEGORIEN || []).forEach(function (group) {
       group.items.forEach(function (item) {
-        if (data.some(function (place) { return place.kat === item.key; })) present.push(item);
+        if (data.some(function (place) { return placeHasCategory(place, item.key); })) present.push(item);
       });
     });
     present.forEach(function (item) {
@@ -407,10 +490,10 @@ window.POLEN_MAP_APP_V2 = function () {
     var allStatuses = noStatusFilter();
     return data.filter(function (place) {
       if (state.region !== "alle" && place.region !== state.region) return false;
-      if (!allCategories && !state.kats[place.kat]) return false;
+      if (!allCategories && !Object.keys(state.kats).some(function (key) { return placeHasCategory(place, key); })) return false;
       if (!allStatuses && !state.statuses[place.status]) return false;
       if (state.query && place._plSearch.indexOf(state.query) === -1) return false;
-      if (CAMPER_KATS[place.kat] && !filtering) return false;
+      if (placeCategories(place).some(function (key) { return CAMPER_KATS[key]; }) && !filtering) return false;
       return true;
     });
   }
@@ -520,8 +603,60 @@ window.POLEN_MAP_APP_V2 = function () {
     pinLayer.appendChild(group);
   }
 
+  function mapScale() {
+    return BASE_VIEW.width / mapView.width;
+  }
+
+  function updateMapView() {
+    if (!mapSvg) return;
+    mapSvg.setAttribute("viewBox", [mapView.x, mapView.y, mapView.width, mapView.height].join(" "));
+    if (zoomControls) {
+      var output = zoomControls.querySelector("output");
+      if (output) output.textContent = Math.round(mapScale() * 100) + "%";
+    }
+  }
+
+  function zoomMap(factor, centerX, centerY) {
+    var newWidth = Math.max(BASE_VIEW.width / 5, Math.min(BASE_VIEW.width, mapView.width * factor));
+    var newHeight = newWidth * BASE_VIEW.height / BASE_VIEW.width;
+    var cx = typeof centerX === "number" ? centerX : mapView.x + mapView.width / 2;
+    var cy = typeof centerY === "number" ? centerY : mapView.y + mapView.height / 2;
+    var x = cx - newWidth / 2;
+    var y = cy - newHeight / 2;
+    x = Math.max(BASE_VIEW.x, Math.min(BASE_VIEW.x + BASE_VIEW.width - newWidth, x));
+    y = Math.max(BASE_VIEW.y, Math.min(BASE_VIEW.y + BASE_VIEW.height - newHeight, y));
+    mapView = { x: x, y: y, width: newWidth, height: newHeight };
+    updateMapView();
+    renderMap(currentMatches);
+  }
+
+  function resetMapZoom() {
+    mapView = { x: BASE_VIEW.x, y: BASE_VIEW.y, width: BASE_VIEW.width, height: BASE_VIEW.height };
+    updateMapView();
+    renderMap(currentMatches);
+  }
+
+  function addZoomControls() {
+    if (!mapStage || zoomControls) return;
+    mapStage.classList.add("pl-map-stage");
+    zoomControls = document.createElement("div");
+    zoomControls.className = "pl-map-zoom";
+    zoomControls.setAttribute("role", "group");
+    zoomControls.setAttribute("aria-label", english ? "Map zoom" : "Karten-Zoom");
+    zoomControls.innerHTML =
+      '<button type="button" data-zoom="in" aria-label="' + (english ? "Zoom in" : "Vergrößern") + '">+</button>' +
+      '<output aria-live="polite">100%</output>' +
+      '<button type="button" data-zoom="out" aria-label="' + (english ? "Zoom out" : "Verkleinern") + '">−</button>' +
+      '<button type="button" data-zoom="reset" aria-label="' + (english ? "Reset map" : "Karte zurücksetzen") + '">↺</button>';
+    zoomControls.querySelector('[data-zoom="in"]').addEventListener("click", function () { zoomMap(0.7); });
+    zoomControls.querySelector('[data-zoom="out"]').addEventListener("click", function () { zoomMap(1.43); });
+    zoomControls.querySelector('[data-zoom="reset"]').addEventListener("click", resetMapZoom);
+    mapStage.appendChild(zoomControls);
+  }
+
   function renderClusters(points) {
-    var cellSize = points.length > 3000 ? 9 : (points.length > 900 ? 7 : 5.5);
+    var baseCellSize = points.length > 3000 ? 9 : (points.length > 900 ? 7 : 5.5);
+    var cellSize = baseCellSize / Math.pow(mapScale(), 0.8);
     var buckets = {};
     points.forEach(function (place) {
       var key = Math.floor(place.x / cellSize) + ":" + Math.floor(place.y / cellSize);
@@ -550,6 +685,19 @@ window.POLEN_MAP_APP_V2 = function () {
         ? placeName(bucket.places[0])
         : (english ? formatNumber(size) + " matching places in this area" : formatNumber(size) + " passende Orte in diesem Kartenausschnitt");
       group.appendChild(title);
+      group.setAttribute("tabindex", "0");
+      group.setAttribute("role", "button");
+      group.style.cursor = "zoom-in";
+      var clusterX = bucket.x / size;
+      var clusterY = bucket.y / size;
+      function openCluster() { zoomMap(0.58, clusterX, clusterY); }
+      group.addEventListener("click", openCluster);
+      group.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openCluster();
+        }
+      });
       pinLayer.appendChild(group);
     });
   }
@@ -560,7 +708,7 @@ window.POLEN_MAP_APP_V2 = function () {
     var points = matches.filter(function (place) {
       return Number.isFinite(place.x) && Number.isFinite(place.y);
     });
-    if (points.length > MAP_CLUSTER_THRESHOLD) {
+    if (points.length > MAP_CLUSTER_THRESHOLD * mapScale()) {
       renderClusters(points);
       return;
     }
@@ -588,13 +736,18 @@ window.POLEN_MAP_APP_V2 = function () {
       mapSvg = holder.querySelector("svg");
       if (!mapSvg) throw new Error("SVG fehlt");
       mapSvg.setAttribute("class", "pl-map");
-      mapSvg.setAttribute("viewBox", "450 332 182 162");
+      updateMapView();
       var poland = mapSvg.querySelector("#c-PL");
       if (poland) poland.classList.add("pl");
       pinLayer = document.createElementNS(NS, "g");
       pinLayer.setAttribute("data-pl-pins", "");
       mapSvg.appendChild(pinLayer);
       mapStage.appendChild(mapSvg);
+      addZoomControls();
+      mapSvg.addEventListener("wheel", function (event) {
+        event.preventDefault();
+        zoomMap(event.deltaY < 0 ? 0.82 : 1.22);
+      }, { passive: false });
       renderMap(currentMatches);
     }).catch(function (error) {
       console.error("Polen-Karte konnte nicht geladen werden:", error);
