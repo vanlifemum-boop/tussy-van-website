@@ -596,28 +596,28 @@ window.POLEN_DATA = [
     blurb: "Der rechteckige Markt ist seit dem 15. Jahrhundert das Zentrum der Altstadt; die barocke Matthäusbasilika liegt nur wenige Schritte entfernt."
   },
 
-  /* ---- 🚽 MOPs mit Camper-Service (Ver-/Entsorgung & Wasser) — Auswahl, wird ergänzt ---- */
+  /* ---- 🛣️ Manuell gepflegte MOP-Auswahl mit Entsorgung ---- */
   {
     id: "mop-brwinow", name: "MOP Brwinów (A2)", region: "zentral",
-    kat: "entsorgung", status: "sehenswert", x: 556.6, y: 405.9,
+    kat: "rastplatz", kats: ["rastplatz", "entsorgung"], status: "sehenswert", x: 556.6, y: 405.9,
     url: "https://www.google.com/maps/search/?api=1&query=MOP+Brwinow+A2", meta: "A2 Ri. Warschau · Camper-Service",
     blurb: "Rastplatz an der A2 mit Camper-freundlicher Ausstattung: frisches Wasser tanken sowie Grau- und Chemie-WC-Entsorgung. Angaben ohne Gewähr — bitte vor Ort prüfen."
   },
   {
     id: "mop-wystepa", name: "MOP Występa (S7)", region: "sueden",
-    kat: "entsorgung", status: "sehenswert", x: 556.1, y: 432.7,
+    kat: "rastplatz", kats: ["rastplatz", "entsorgung"], status: "sehenswert", x: 556.1, y: 432.7,
     url: "https://www.google.com/maps/search/?api=1&query=MOP+Wystepa+S7", meta: "S7 bei Kielce · Camper-Service",
     blurb: "Rastplatz an der S7 mit Entsorgungspunkt für flüssige Abwässer — praktisch für Camper und Wohnwagen. Angaben ohne Gewähr — bitte vor Ort prüfen."
   },
   {
     id: "mop-machnacz", name: "MOP Machnacz (A1)", region: "zentral",
-    kat: "entsorgung", status: "sehenswert", x: 531.5, y: 397.0,
+    kat: "rastplatz", kats: ["rastplatz", "entsorgung"], status: "sehenswert", x: 531.5, y: 397.0,
     url: "https://www.google.com/maps/search/?api=1&query=MOP+Machnacz+A1", meta: "A1 bei Włocławek · Camper-Service",
     blurb: "Rastplatz an der A1 mit Entsorgungspunkt für Abwasser — guter Stopp auf der Nord-Süd-Route. Angaben ohne Gewähr — bitte vor Ort prüfen."
   },
   {
     id: "mop-krzyzanow", name: "MOP Krzyżanów (A1)", region: "zentral",
-    kat: "entsorgung", status: "sehenswert", x: 539.4, y: 405.3,
+    kat: "rastplatz", kats: ["rastplatz", "entsorgung"], status: "sehenswert", x: 539.4, y: 405.3,
     url: "https://www.google.com/maps/search/?api=1&query=MOP+Krzyzanow+A1", meta: "A1 bei Kutno · Camper-Service",
     blurb: "Rastplatz an der A1 mit Entsorgungspunkt für Abwasser. Angaben ohne Gewähr — bitte vor Ort prüfen."
   }
@@ -648,9 +648,9 @@ window.POLEN_KATEGORIEN = [
     { key: "biwak",         icon: "🏕️", label: "Wildes Biwak / Naturplatz", labelEn: "Wild camp / nature spot" },
     { key: "waldpark",      icon: "🅿️", label: "Waldparkplatz", labelEn: "Forest parking" },
     { key: "rastplatz",     icon: "🛣️", label: "Rastplatz (MOP)", labelEn: "Motorway rest area (MOP)" },
+    { key: "wc",            icon: "🚻", label: "WC", labelEn: "Toilet" },
     { key: "dusche",        icon: "🚿", label: "Dusche", labelEn: "Shower" },
-    { key: "entsorgung",    icon: "🚽", label: "Ver-/Entsorgung", labelEn: "Water & waste service" },
-    { key: "werkstatt",     icon: "🔧", label: "Camper-Werkstatt", labelEn: "Camper workshop" },
+    { key: "entsorgung",    icon: "🚽", label: "Entsorgung", labelEn: "Waste disposal" },
     { key: "waschsalon",    icon: "🧺", label: "Waschsalon", labelEn: "Laundromat" },
     { key: "campersystem",  icon: "🚐", label: "Camper System", labelEn: "Camper System" },
     { key: "camperservice", icon: "🆑", label: "Camper-Service (CS)", labelEn: "Camper service (CS)" }
@@ -696,7 +696,7 @@ window.POLEN_STATUS = {
     });
   }
   // Camper-Kategorien: erscheinen auf der Karte erst beim Filtern/Suchen (sonst zu voll).
-  var CAMPER_KATS = { camping: 1, camperservice: 1, entsorgung: 1, rastplatz: 1, waldpark: 1, biwak: 1, dusche: 1, waschsalon: 1 };
+  var CAMPER_KATS = { camping: 1, camperservice: 1, campersystem: 1, entsorgung: 1, rastplatz: 1, waldpark: 1, biwak: 1, dusche: 1, wc: 1, waschsalon: 1 };
   var camperTotal = data.filter(function (d) { return CAMPER_KATS[d.kat]; }).length;
 
   var mapStage = document.querySelector("[data-pl-map]");
