@@ -494,6 +494,8 @@ h1, h2, h3 { font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-
 }
 .social-icons a:hover { background: var(--neon); border-color: var(--neon); color: var(--blue-ink); transform: translateY(-3px) rotate(-4deg); }
 .social-icons svg { width: 22px; height: 22px; fill: currentColor; }
+.social-icons.compact a { width: 30px; height: 30px; }
+.social-icons.compact svg { width: 15px; height: 15px; }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.6rem;
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem;
