@@ -24,6 +24,7 @@ python3 -m http.server 8080
 | **Reiseziele** (Tipps, Stellplätze, Filter) | `js/destinations.js` — einfach Einträge kopieren/ändern |
 | **Blog-Beiträge** | Ordner `blog/` — bestehenden Artikel kopieren, Text ändern, auf `blog.html` und ggf. Startseite verlinken |
 | **Texte der Startseite / Über mich** | direkt in `index.html` / `ueber-mich.html` |
+| **Browser-Spiel „Pack & Go“** | `spiel.html`, `css/game.css` und `js/game.js` |
 | **Fotos** | `img/hero-tussy.jpg` (Startseite) und `img/tussy-bulli.jpg` (Über mich) ersetzen |
 | **Farben** | `css/site.css` → `:root`-Variablen (`--blue`, `--neon`, `--terra`, …) |
 | **Routen-Stationen der Karte** | `js/route-points.json` (Koordinaten) + passende Einträge in `js/destinations.js` (gleiche `id`) |
