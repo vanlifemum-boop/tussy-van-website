@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Gasmelder im Camper: Welche Gefahr braucht welchen Sensor?</title>
+  <desc id="desc">Übersicht zu Flüssiggas, Kohlenmonoxid und sogenannten Narkosegasen sowie zur getrennten Montage eines LPG- und eines CO-Sensors.</desc>
+  <rect width="1600" height="1000" rx="42" fill="#e7f0fb"/>
+  <rect x="22" y="22" width="1556" height="956" rx="32" fill="none" stroke="#2b2823" stroke-width="8"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#2b2823">
+    <rect x="76" y="64" width="330" height="54" rx="27" fill="#2350b5" stroke="#2b2823" stroke-width="5"/>
+    <text x="241" y="101" fill="#fff" font-size="28" font-weight="700" text-anchor="middle" letter-spacing="2">CAMPER-WISSEN</text>
+    <text x="76" y="180" font-size="58" font-weight="800">3 Gefahren. 2 Sensortypen.</text>
+    <text x="76" y="242" font-size="58" font-weight="800">1 klare Regel.</text>
+    <rect x="1085" y="82" width="414" height="114" rx="24" fill="#ffff00" stroke="#2b2823" stroke-width="6" transform="rotate(2 1292 139)"/>
+    <text x="1292" y="132" font-size="32" font-weight="800" text-anchor="middle">Ein Melder ersetzt nie</text>
+    <text x="1292" y="172" font-size="32" font-weight="800" text-anchor="middle">Wartung &amp; Gasprüfung</text>
+
+    <g transform="translate(76 300)">
+      <rect width="454" height="352" rx="28" fill="#fff" stroke="#2b2823" stroke-width="6"/>
+      <circle cx="68" cy="70" r="37" fill="#c0704f" stroke="#2b2823" stroke-width="5"/>
+      <path d="M68 42v56M49 78l19 20 19-20" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="122" y="64" font-size="36" font-weight="800">Propan / Butan</text>
+      <text x="122" y="102" font-size="25" fill="#7a746b">Flüssiggas (LPG)</text>
+      <text x="36" y="160" font-size="27" font-weight="700">Risiko:</text>
+      <text x="36" y="198" font-size="27">Leck, Brand, Explosion</text>
+      <text x="36" y="252" font-size="27" font-weight="700">Dafür:</text>
+      <text x="36" y="290" font-size="27">eigener LPG-Sensor</text>
+      <rect x="36" y="312" width="276" height="52" rx="20" fill="#ffff00" stroke="#2b2823" stroke-width="4"/>
+      <text x="174" y="347" font-size="24" font-weight="800" text-anchor="middle">DIN EN 50194-2</text>
+    </g>
+
+    <g transform="translate(573 300)">
+      <rect width="454" height="352" rx="28" fill="#fff" stroke="#2b2823" stroke-width="6"/>
+      <circle cx="68" cy="70" r="37" fill="#2350b5" stroke="#2b2823" stroke-width="5"/>
+      <text x="68" y="80" fill="#fff" font-size="28" font-weight="800" text-anchor="middle">CO</text>
+      <text x="122" y="64" font-size="36" font-weight="800">Kohlenmonoxid</text>
+      <text x="122" y="102" font-size="25" fill="#7a746b">unsichtbar &amp; geruchlos</text>
+      <text x="36" y="160" font-size="27" font-weight="700">Risiko:</text>
+      <text x="36" y="198" font-size="27">Vergiftung beim Verbrennen</text>
+      <text x="36" y="252" font-size="27" font-weight="700">Dafür:</text>
+      <text x="36" y="290" font-size="27">spezieller CO-Sensor</text>
+      <rect x="36" y="312" width="276" height="52" rx="20" fill="#ffff00" stroke="#2b2823" stroke-width="4"/>
+      <text x="174" y="347" font-size="24" font-weight="800" text-anchor="middle">DIN EN 50291-2</text>
+    </g>
+
+    <g transform="translate(1070 300)">
+      <rect width="454" height="352" rx="28" fill="#fff" stroke="#2b2823" stroke-width="6"/>
+      <circle cx="68" cy="70" r="37" fill="#ffff00" stroke="#2b2823" stroke-width="5"/>
+      <text x="68" y="82" font-size="38" font-weight="800" text-anchor="middle">?</text>
+      <text x="122" y="64" font-size="34" font-weight="800">„Narkosegas“</text>
+      <text x="122" y="102" font-size="23" fill="#7a746b">kein definiertes Einzelgas</text>
+      <text x="36" y="160" font-size="27" font-weight="700">Wichtig:</text>
+      <text x="36" y="198" font-size="27">keine Universal-Garantie</text>
+      <text x="36" y="252" font-size="27" font-weight="700">Deshalb:</text>
+      <text x="36" y="290" font-size="27">Werbeversprechen prüfen</text>
+      <rect x="36" y="312" width="345" height="52" rx="20" fill="#d4e4f6" stroke="#2b2823" stroke-width="4"/>
+      <text x="208" y="347" font-size="23" font-weight="800" text-anchor="middle">Diebstahlschutz extra</text>
+    </g>
+
+    <g transform="translate(76 708)">
+      <path d="M48 185h1050l56-48v-84c0-32 26-58 58-58h137c67 0 115 42 129 105l18 85h12v66H48z" fill="#2350b5" stroke="#2b2823" stroke-width="7" stroke-linejoin="round"/>
+      <rect x="86" y="59" width="700" height="126" rx="18" fill="#fff" opacity=".96"/>
+      <rect x="814" y="59" width="298" height="126" rx="18" fill="#fff" opacity=".96"/>
+      <rect x="1194" y="42" width="183" height="95" rx="18" fill="#d4e4f6" stroke="#2b2823" stroke-width="5"/>
+      <circle cx="282" cy="230" r="55" fill="#2b2823"/>
+      <circle cx="282" cy="230" r="27" fill="#e7f0fb"/>
+      <circle cx="1260" cy="230" r="55" fill="#2b2823"/>
+      <circle cx="1260" cy="230" r="27" fill="#e7f0fb"/>
+
+      <rect x="138" y="145" width="60" height="40" rx="10" fill="#c0704f" stroke="#2b2823" stroke-width="5"/>
+      <path d="M168 137V96" stroke="#2b2823" stroke-width="6" stroke-linecap="round"/>
+      <path d="M153 111l15-15 15 15" fill="none" stroke="#2b2823" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="226" y="113" fill="#2b2823" font-size="29" font-weight="800">LPG-Melder: tief</text>
+      <text x="226" y="151" fill="#2b2823" font-size="22">genau nach Herstellerangabe</text>
+
+      <rect x="878" y="79" width="60" height="40" rx="10" fill="#ffff00" stroke="#2b2823" stroke-width="5"/>
+      <text x="908" y="108" font-size="21" font-weight="800" text-anchor="middle">CO</text>
+      <path d="M908 127v42" stroke="#2b2823" stroke-width="6" stroke-linecap="round"/>
+      <path d="M893 154l15 15 15-15" fill="none" stroke="#2b2823" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="968" y="94" fill="#2b2823" font-size="29" font-weight="800">CO-Melder:</text>
+      <text x="968" y="127" fill="#2b2823" font-size="22">im Schlafbereich</text>
+      <text x="968" y="157" fill="#2b2823" font-size="22">nach Anleitung</text>
+    </g>
+  </g>
+</svg>
