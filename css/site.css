@@ -496,6 +496,9 @@ h1, h2, h3 { font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-
 /* ---------- Camper-Wissen: Gasmelder ---------- */
 .gas-alarm-guide { max-width: 54em; }
 .gas-alarm-guide .lead { max-width: 46em; color: var(--ink); font-size: 1.08rem; }
+.gas-alarm-guide .article-hero img {
+  height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: center;
+}
 .gas-alarm-guide .warning-box { background: #fff3c7; border-left: 10px solid var(--terra); }
 .alarm-risk-grid {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem;
@@ -538,6 +541,11 @@ h1, h2, h3 { font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-
 .gas-alarm-guide details.faq p { margin: 0.75rem 0 0; }
 @media (max-width: 760px) {
   .alarm-risk-grid, .gas-alarm-guide .alarm-actions { grid-template-columns: 1fr; }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .gas-alarm-guide .article-hero img {
+    aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 48%;
+  }
 }
 
 /* ---------- Über mich teaser ---------- */
