@@ -38,7 +38,26 @@
         <span class="hand">Reiseberichte · Camper-Alltag · Camper-Wissen · Frau schraubt selbst</span>
       </div>
 
-      <div class="post-grid">
+      <a class="featured-guide reveal" data-blog-entry href="blog/gasmelder-camper-kohlenmonoxid-lpg.html">
+        <img src="img/blog/gasmelder-wohnmobil-tussy.webp" width="1536" height="1024" alt="Tussy prüft zwei nachgerüstete Gaswarner in einem klassischen Wohnmobil">
+        <div class="featured-guide-copy">
+          <span class="cat sticker neon">🛡️ Wichtiger Sicherheitsratgeber</span>
+          <h2>Gasmelder im Camper: Welcher Warner schützt wirklich?</h2>
+          <p>LPG, Kohlenmonoxid und „Narkosegas“ verständlich erklärt – mit RMI-Labortest, Kaufcheck, Montage und einem klaren Alarmplan.</p>
+          <span class="featured-guide-link">Ratgeber jetzt lesen →</span>
+        </div>
+      </a>
+
+      <div class="blog-tools reveal" id="blog-suche">
+        <label for="blog-search"><b>Welchen Artikel suchst du?</b><span>Titel, Thema oder Stichwort eingeben</span></label>
+        <div class="blog-search-row">
+          <input id="blog-search" type="search" data-blog-search placeholder="Zum Beispiel: Gas, Polen, Packliste oder Reparatur" autocomplete="off">
+          <button class="btn" type="button" data-blog-clear>Leeren</button>
+        </div>
+        <p class="blog-result-count" data-blog-count aria-live="polite"></p>
+      </div>
+
+      <div class="post-grid" data-blog-grid>
         <a class="post-card reveal" href="blog/blauer-t4-getriebeschaden.html">
           <span class="cat sticker army">Werkstatt-Story</span>
           <h3>Jetzt muss auch der Blaue in die Werkstatt</h3>
@@ -116,12 +135,6 @@
           <h3>Neue Airlineschienen für den Roten</h3>
           <p>Mehr Gepäck aufs Dach, mehr Wohnraum im Bus: Warum dieser kleine Umbau unterwegs so viel verändert hat.</p>
           <span class="meta">Ausbau am Roten · 5 Min.</span>
-        </a>
-        <a class="post-card reveal" id="camper-wissen" href="blog/gasmelder-camper-kohlenmonoxid-lpg.html">
-          <span class="cat sticker blue">Camper-Wissen</span>
-          <h3>Gasmelder im Camper: Welcher Warner schützt wirklich?</h3>
-          <p>LPG, Kohlenmonoxid und „Narkosegas“ verständlich erklärt – mit RMI-Labortest, Kaufcheck, Montage und Alarmplan.</p>
-          <span class="meta">September 2026 · 13 Min.</span>
         </a>
         <a class="post-card reveal" data-delay="1" href="blog/gasflaschen-adapter-europa.html">
           <span class="cat sticker blue">Camper-Wissen</span>
@@ -232,6 +245,7 @@
           <span class="meta">Wie alles begann · 2 Min.</span>
         </a>
       </div>
+      <p class="blog-empty" data-blog-empty hidden>Zu diesem Suchbegriff habe ich noch keinen Beitrag gefunden.</p>
     </div>
   </section>
 

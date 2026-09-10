@@ -90,6 +90,49 @@
   }, { threshold: 0.15 });
   document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
 
+  /* ---------- Blog-Suche ---------- */
+  document.querySelectorAll("[data-blog-search]").forEach(function (input) {
+    var section = input.closest(".section");
+    if (!section) return;
+
+    var entries = Array.prototype.slice.call(section.querySelectorAll("[data-blog-entry], [data-blog-grid] .post-card"));
+    var count = section.querySelector("[data-blog-count]");
+    var empty = section.querySelector("[data-blog-empty]");
+    var clear = section.querySelector("[data-blog-clear]");
+    var isEnglish = document.documentElement.lang.toLowerCase().indexOf("en") === 0;
+
+    function normalize(value) {
+      value = (value || "").toLowerCase();
+      return value.normalize ? value.normalize("NFD").replace(/[\u0300-\u036f]/g, "") : value;
+    }
+
+    function updateBlogSearch() {
+      var query = normalize(input.value.trim());
+      var visible = 0;
+      entries.forEach(function (entry) {
+        var matches = !query || normalize(entry.textContent).indexOf(query) !== -1;
+        entry.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      if (count) {
+        count.textContent = isEnglish
+          ? visible + (visible === 1 ? " article found" : " articles found")
+          : visible + (visible === 1 ? " Beitrag gefunden" : " Beiträge gefunden");
+      }
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    input.addEventListener("input", updateBlogSearch);
+    if (clear) {
+      clear.addEventListener("click", function () {
+        input.value = "";
+        updateBlogSearch();
+        input.focus();
+      });
+    }
+    updateBlogSearch();
+  });
+
   /* ---------- Bulli am Seitenrand faehrt mit ---------- */
   var roadBulli = document.querySelector(".road-bulli");
   if (roadBulli) {

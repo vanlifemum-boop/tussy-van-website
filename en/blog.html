@@ -38,13 +38,26 @@
         <span class="hand">Travel stories · Camper life · Camper know-how · DIY repairs</span>
       </div>
 
-      <div class="post-grid">
-        <a class="post-card reveal" id="camper-wissen" href="blog/gasmelder-camper-kohlenmonoxid-lpg.html">
-          <span class="cat sticker blue">Camper know-how</span>
-          <h3>Gas alarms in campers: which detector really protects you?</h3>
+      <a class="featured-guide reveal" data-blog-entry href="blog/gasmelder-camper-kohlenmonoxid-lpg.html">
+        <img src="../img/blog/gasmelder-wohnmobil-tussy.webp" width="1536" height="1024" alt="Tussy checks two retrofitted gas alarms in a conventional motorhome">
+        <div class="featured-guide-copy">
+          <span class="cat sticker neon">🛡️ Important safety guide</span>
+          <h2>Gas alarms in campers: which detector really protects you?</h2>
           <p>LPG, carbon monoxide and “knockout gas” explained — with the RMI laboratory test, buying checklist, installation and emergency action.</p>
-          <span class="meta">September 2026 · 13 min.</span>
-        </a>
+          <span class="featured-guide-link">Read the safety guide →</span>
+        </div>
+      </a>
+
+      <div class="blog-tools reveal" id="blog-search">
+        <label for="article-search"><b>Which article are you looking for?</b><span>Enter a title, topic or keyword</span></label>
+        <div class="blog-search-row">
+          <input id="article-search" type="search" data-blog-search placeholder="For example: gas, Poland, packing list or repair" autocomplete="off">
+          <button class="btn" type="button" data-blog-clear>Clear</button>
+        </div>
+        <p class="blog-result-count" data-blog-count aria-live="polite"></p>
+      </div>
+
+      <div class="post-grid" data-blog-grid>
         <a class="post-card reveal" data-delay="1" href="blog/gasflaschen-adapter-europa.html">
           <span class="cat sticker blue">Camper Know-how</span>
           <h3>Gas cylinder adapters in Europe: Which connector fits?</h3>
@@ -154,6 +167,7 @@
           <span class="meta">How it all began · 2 min.</span>
         </a>
       </div>
+      <p class="blog-empty" data-blog-empty hidden>No article matches that search yet.</p>
     </div>
   </section>
 
