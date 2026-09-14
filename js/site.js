@@ -15,6 +15,24 @@
   };
   window.TV_CONFIG = CONFIG;
 
+  /* ---------- Pack & Go in der deutschen Navigation ---------- */
+  function setupGameLink() {
+    var nav = document.querySelector(".main-nav");
+    var isEnglish = document.documentElement.lang.toLowerCase().indexOf("en") === 0;
+    if (!nav || isEnglish || nav.querySelector('a[href$="spiel.html"]')) return;
+
+    var link = document.createElement("a");
+    link.href = "/spiel.html";
+    link.textContent = "Spiel 🎮";
+    if (window.location.pathname.endsWith("/spiel.html")) link.setAttribute("aria-current", "page");
+
+    var shop = Array.prototype.find.call(nav.querySelectorAll("a"), function (entry) {
+      return entry.getAttribute("href") && entry.getAttribute("href").indexOf("shop.html") !== -1;
+    });
+    nav.insertBefore(link, shop || nav.querySelector(".btn-terra") || null);
+  }
+  setupGameLink();
+
   /* ---------- Sprachwechsel Deutsch / Englisch ---------- */
   function setupLanguageSwitch() {
     var nav = document.querySelector(".main-nav");
