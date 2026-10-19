@@ -5,6 +5,13 @@ Eine Frau reist mit ihrem blauen VW T4 durch Europa — Reiseziele, Blog
 (inkl. „Frau schraubt selbst"), animierte Europakarte mit mitfahrendem Bulli
 und DSGVO-Grundausstattung. Statisches HTML/CSS/JS, kein Build-Schritt.
 
+## Projektkontext aus dem Chat
+
+Die belegbaren Chat-Aufträge, der geprüfte Stand der Sprachversionen und die
+noch offenen Polen-Kartenkorrekturen stehen in
+[docs/PROJEKTKONTEXT.md](docs/PROJEKTKONTEXT.md).
+
+
 ## Lokal ansehen
 
 ```bash
@@ -53,9 +60,13 @@ Nav-Link ergänzen).
 
 ## Englische Sprachversion aktualisieren
 
-Alle deutschen HTML-Seiten haben ein vollständiges Gegenstück unter `/en/`.
-Neue oder geänderte Beiträge werden samt internen Links, Metadaten und den
-dynamisch erzeugten Karteninhalten mit diesem Befehl aktualisiert:
+Die englische Sprachversion liegt unter `/en/`. Beim Abgleich am 19.10.2026
+waren 43 englische Gegenstücke für 57 deutsche HTML-Seiten vorhanden. Die
+fehlenden Seiten und die noch offenen Sprachversionen Französisch, Polnisch
+und Spanisch sind im [Projektkontext](docs/PROJEKTKONTEXT.md) aufgeführt.
+
+Der vorhandene Generator aktualisiert englische Seiten samt internen Links,
+Metadaten und dynamisch erzeugten Karteninhalten mit diesem Befehl:
 
 ```bash
 python3 scripts/generate_english_site.py
