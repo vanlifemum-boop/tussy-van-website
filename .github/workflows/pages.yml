@@ -34,6 +34,26 @@ jobs:
             -d '{"cname":"tussy-van.de"}' || true
       - uses: actions/upload-pages-artifact@v3
         with:
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: .
+      - name: Wait for Pages artifact metadata
+        env:
+          PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python3 - <<'PY'
+          import json, os, time, urllib.request
+          endpoint = f"{os.environ['GITHUB_API_URL']}/repos/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}/artifacts"
+          for attempt in range(12):
+              with urllib.request.urlopen(endpoint, timeout=20) as response:
+                  artifacts = json.load(response)['artifacts']
+              if any(a['name'] == os.environ['PAGES_ARTIFACT_NAME'] and not a['expired'] for a in artifacts):
+                  print('Pages artifact metadata is ready')
+                  break
+              time.sleep(5)
+          else:
+              raise SystemExit('Pages artifact metadata did not become available')
+          PY
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
