@@ -60,7 +60,7 @@ Nav-Link ergänzen).
 
 ## Sprachversionen aktualisieren
 
-Alle 57 deutschen Seiten haben Gegenstücke unter `/en/`, `/es/`, `/fr/` und
+Alle 59 deutschen Seiten haben Gegenstücke unter `/en/`, `/es/`, `/fr/` und
 `/pl/`. Die Sprachauswahl auf jeder Seite behält den jeweiligen Artikel bei.
 Die Übersetzungen sind maschinell erzeugt; Impressum und Datenschutzerklärung
 verweisen aus allen Sprachversionen auf die maßgeblichen deutschen Originale.

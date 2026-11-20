@@ -34,11 +34,11 @@ aller Sprachversionen einschließlich Spanisch, Französisch und Polnisch.
 
 | Sprache | HTML-Dateien | Pfad |
 |---|---:|---|
-| Deutsch | 57 | `/` |
-| Englisch | 57 | `/en/` |
-| Spanisch | 57 | `/es/` |
-| Französisch | 57 | `/fr/` |
-| Polnisch | 57 | `/pl/` |
+| Deutsch | 59 | `/` |
+| Englisch | 59 | `/en/` |
+| Spanisch | 59 | `/es/` |
+| Französisch | 59 | `/fr/` |
+| Polnisch | 59 | `/pl/` |
 
 Die vorher fehlenden 14 englischen Seiten sind enthalten. Die neuen Fassungen
 werden aus den aktuellen deutschen Quellen erzeugt. Die Übersetzungen sind
@@ -112,3 +112,15 @@ Für eine vollständige Übernahme werden noch die ursprüngliche Liste der
 Polen-Korrekturen und weitere relevante Chatabschnitte bzw. Anhänge benötigt.
 Bestätigte Details anschließend hier und in den zuständigen Quelldateien
 ergänzen; offene Aufgaben erst nach Prüfung abhaken.
+
+## Bielsko-Biała – Veröffentlichung vom 20.11.2026
+
+Auf ausdrücklichen Auftrag auf `main`: Messebeitrag vom polnischen Stand in
+Leipzig und ausführliche Reiseempfehlung mit Zweitagesplan. Beide Artikel sind
+auf Startseite, Blog und Polen-Seite verlinkt und in alle vier weiteren
+Sprachen übernommen. Grundlagen: die verlinkte offizielle Kulturseite,
+offizielle Stadtführer und Objektseiten; Quellen stehen im Reiseartikel.
+
+Die persönlich angekündigten Messefotos werden nachgereicht. Die im Chat
+erwähnte PDF war nicht angehängt; ein späterer Abgleich bleibt offen. Der
+Text behauptet keine persönlichen Besuche einzelner Sehenswürdigkeiten.
