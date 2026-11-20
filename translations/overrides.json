@@ -4,7 +4,8 @@
     "blauer Bulli": "blue VW van",
     "mein Blauer & ich 💙": "my blue van & me 💙",
     "Werkzeug": "Tools",
-    "Jetzt muss auch der Blaue in die Werkstatt": "Now my blue van needs the workshop too"
+    "Jetzt muss auch der Blaue in die Werkstatt": "Now my blue van needs the workshop too",
+    "Van": "Van"
   },
   "es": {
     "Start": "Inicio",
@@ -25,7 +26,14 @@
     "Jetzt muss auch der Blaue in die Werkstatt": "Ahora mi furgo azul también tiene que ir al taller",
     "Ich bin Tussy — ich reise mit meinem VW T4 durch Europa, sammle die schönsten Stellplätze und zeige dir auf YouTube, wie Vanlife wirklich aussieht: Traumstrände inklusive Ölwechsel.": "Soy Tussy: recorro Europa en mi VW T4, descubro los mejores lugares para aparcar y pernoctar y te enseño en YouTube cómo es de verdad la vida en furgo: playas de ensueño y cambios de aceite incluidos.",
     "Entsorgung": "Vaciado",
-    "Entsorgung 🚽": "Vaciado 🚽"
+    "Entsorgung 🚽": "Vaciado 🚽",
+    "Van": "Van",
+    "Impressum": "Aviso legal",
+    "Datenschutz": "Privacidad",
+    "Datenschutzerklärung": "Política de privacidad",
+    "Anmelden": "Suscribirme",
+    "Bulli-Fahrerin, Selberschrauberin, Sonnenanbeterin": "Conductora de furgo, mecánica autodidacta y amante del sol",
+    "🖱️ Punkte anklicken · 🚌 der Bulli folgt deinem Scroll": "🖱️ Haz clic en los puntos · 🚌 la furgo avanza al desplazarte por la página"
   },
   "fr": {
     "Start": "Accueil",
@@ -47,7 +55,13 @@
     "Ich bin Tussy — ich reise mit meinem VW T4 durch Europa, sammle die schönsten Stellplätze und zeige dir auf YouTube, wie Vanlife wirklich aussieht: Traumstrände inklusive Ölwechsel.": "Moi, c’est Tussy. Je parcours l’Europe à bord de mon VW T4, je déniche les plus beaux endroits où stationner et passer la nuit, et je te montre sur YouTube la vraie vie en van : plages de rêve et vidanges comprises.",
     "Entsorgung": "Vidange",
     "Entsorgung 🚽": "Vidange 🚽",
-    "Pack & Go — das Tussy Van Spiel": "Pack & Go — le jeu Tussy Van"
+    "Pack & Go — das Tussy Van Spiel": "Pack & Go — le jeu Tussy Van",
+    "Van": "Van",
+    "Impressum": "Mentions légales",
+    "Datenschutz": "Confidentialité",
+    "Datenschutzerklärung": "Politique de confidentialité",
+    "Anmelden": "M’abonner",
+    "Bulli-Fahrerin, Selberschrauberin, Sonnenanbeterin": "Conductrice de van, bricoleuse et amoureuse du soleil"
   },
   "pl": {
     "Start": "Strona główna",
@@ -71,6 +85,12 @@
     "Ich bin Tussy — ich reise mit meinem VW T4 durch Europa, sammle die schönsten Stellplätze und zeige dir auf YouTube, wie Vanlife wirklich aussieht: Traumstrände inklusive Ölwechsel.": "Jestem Tussy — podróżuję moim VW T4 po Europie, odkrywam najpiękniejsze miejsca na postój i nocleg, a na YouTube pokazuję, jak naprawdę wygląda życie w busie: od rajskich plaż po wymianę oleju.",
     "Entsorgung": "Zrzut ścieków",
     "Entsorgung 🚽": "Zrzut ścieków 🚽",
-    "Shop": "Sklep"
+    "Shop": "Sklep",
+    "Van": "Van",
+    "Impressum": "Informacje prawne",
+    "Datenschutz": "Prywatność",
+    "Datenschutzerklärung": "Polityka prywatności",
+    "Anmelden": "Zapisz mnie",
+    "Bulli-Fahrerin, Selberschrauberin, Sonnenanbeterin": "Kierowczyni busa, majsterkowiczka i miłośniczka słońca"
   }
 }
