@@ -78,7 +78,7 @@ python3 scripts/update_latest_blog.py
 python3 -m unittest discover -s scripts -p 'test_latest_blog.py'
 ```
 
-Alle 59 deutschen Seiten haben Gegenstücke unter `/en/`, `/es/`, `/fr/` und
+Alle 80 deutschen Seiten haben Gegenstücke unter `/en/`, `/es/`, `/fr/` und
 `/pl/`. Die Sprachauswahl auf jeder Seite behält den jeweiligen Artikel bei.
 Die Übersetzungen sind maschinell erzeugt; Impressum und Datenschutzerklärung
 verweisen aus allen Sprachversionen auf die maßgeblichen deutschen Originale.
