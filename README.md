@@ -30,6 +30,7 @@ python3 -m http.server 8080
 | **Newsletter-Anbieter** (Brevo, Mailchimp, …) | `js/site.js` → `CONFIG.newsletterAction` (Form-Action-URL des Anbieters eintragen) |
 | **Reiseziele** (Tipps, Stellplätze, Filter) | `js/destinations.js` — einfach Einträge kopieren/ändern |
 | **Blog-Beiträge** | Ordner `blog/` — bestehenden Artikel kopieren, Text ändern, auf `blog.html` und ggf. Startseite verlinken |
+| **Button „Neuester Blog“** | Wird bei jeder Veröffentlichung automatisch aus den Blogdateien ermittelt; kein manuelles Umstellen nötig. |
 | **Texte der Startseite / Über mich** | direkt in `index.html` / `ueber-mich.html` |
 | **Browser-Spiel „Pack & Go“** | `spiel.html`, `css/game.css` und `js/game.js` |
 | **Fotos** | `img/hero-tussy.jpg` (Startseite) und `img/tussy-bulli.jpg` (Über mich) ersetzen |
@@ -59,6 +60,23 @@ Nav-Link ergänzen).
 - Der kleine Bulli am rechten Seitenrand fährt mit dem Scroll-Fortschritt
 
 ## Sprachversionen aktualisieren
+
+Der Navigationsbutton **Neuester Blog** führt direkt zum zuletzt neu ins
+Repository aufgenommenen Artikel. `scripts/update_latest_blog.py` verwendet
+dafür den ersten Git-Commit einer Blogdatei. Änderungen an älteren Beiträgen
+verschieben das Ziel nicht. Bei mehreren Beiträgen im selben Commit entscheiden
+`datePublished` und anschließend der Dateiname. `noindex`-Artikel werden
+ausgelassen. In den Sprachversionen führt der Button zum übersetzten Artikel;
+fehlt dessen Übersetzung noch, zum neuen deutschen Original.
+
+Der GitHub-Pages-Workflow aktualisiert den Button bei jedem Push auf `main`
+automatisch. Die Sprachgenerierung ruft denselben Schritt auf. Zum separaten
+Aktualisieren und Prüfen:
+
+```bash
+python3 scripts/update_latest_blog.py
+python3 -m unittest discover -s scripts -p 'test_latest_blog.py'
+```
 
 Alle 59 deutschen Seiten haben Gegenstücke unter `/en/`, `/es/`, `/fr/` und
 `/pl/`. Die Sprachauswahl auf jeder Seite behält den jeweiligen Artikel bei.

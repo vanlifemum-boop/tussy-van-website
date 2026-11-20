@@ -306,6 +306,8 @@ def main():
             generate(page, lang, translations)
     for page in pages:
         generate(page, "de", {})
+    from update_latest_blog import update as update_latest_blog
+    update_latest_blog(ROOT)
     sitemap(pages)
     validate(pages)
 
