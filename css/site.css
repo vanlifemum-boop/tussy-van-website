@@ -127,12 +127,22 @@ h1, h2, h3 { font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-
 }
 .main-nav > a:hover, .main-nav > a[aria-current="page"] { border-bottom-color: var(--neon); }
 .main-nav .btn { padding: 0.55em 1.1em; font-size: 0.85rem; }
-.main-nav > .lang-switch {
-  border: 2px solid var(--ink); border-radius: 999px; padding: 0.32em 0.65em;
-  background: var(--white); box-shadow: 2px 2px 0 var(--ink); font-size: 0.8rem;
-  letter-spacing: 0.04em; white-space: nowrap;
+/* Native disclosure keeps all five languages available without JavaScript. */
+.lang-switch { position: relative; flex-shrink: 0; font-size: 0.9rem; }
+.lang-switch summary {
+  border: 2px solid var(--ink); border-radius: 999px; padding: 0.4em 0.7em;
+  background: var(--white); box-shadow: 2px 2px 0 var(--ink);
+  cursor: pointer; font-weight: 700; white-space: nowrap;
 }
-.main-nav > .lang-switch:hover { border-bottom-color: var(--ink); background: var(--neon); }
+.lang-switch summary:hover, .lang-switch[open] summary { background: var(--neon); }
+.lang-options {
+  position: absolute; right: 0; top: calc(100% + 0.6rem); min-width: 10rem;
+  display: grid; padding: 0.4rem; background: var(--white);
+  border: 2px solid var(--ink); border-radius: 12px; box-shadow: var(--shadow-sticker); z-index: 60;
+}
+.lang-options a { padding: 0.6rem 0.8rem; color: var(--ink); text-decoration: none; border-radius: 6px; }
+.lang-options a:hover, .lang-options a[aria-current="page"] { background: var(--neon); }
+.lang-switch summary:focus-visible, .lang-options a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .nav-toggle { display: none; background: none; border: 3px solid var(--ink); border-radius: 10px; padding: 0.35em 0.6em; font-size: 1.1rem; cursor: pointer; background: var(--white); box-shadow: var(--shadow-sticker); }
 
 /* ---------- Scroll-Bulli am Seitenrand ---------- */
@@ -751,4 +761,13 @@ h1, h2, h3 { font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-
   .eu-mapwrap { width: 100%; }
   .eu-cluster text { font-size: 8px; }
   .eu-station-list li { font-size: 0.9rem; }
+}
+
+/* Translated navigation labels need room on tablets and small laptops. */
+@media (min-width: 681px) and (max-width: 1250px) {
+  .site-header .wrap { flex-wrap: wrap; }
+  .main-nav { flex-wrap: wrap; gap: 0.6rem 1rem; }
+}
+@media (max-width: 680px) {
+  .lang-options { left: 0; right: auto; }
 }

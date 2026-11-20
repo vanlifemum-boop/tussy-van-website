@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stacje utylizacji w Europie — 5 356 lokalizacji na mapie | Tussy Van</title>
+  <meta name="description" content="5 356 stacji utylizacji kamperów i kamperów w 36 krajach europejskich: interaktywna mapa, filtr kraju oraz wyszukiwanie według lokalizacji i kodu pocztowego.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%231b49c8'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='6'%20fill='%23ffff00'/%3E%3Cg%20stroke='%23ffff00'%20stroke-width='2.2'%20stroke-linecap='round'%3E%3Cpath%20d='M16%204v3M16%2025v3M4%2016h3M25%2016h3M7.5%207.5l2%202M22.5%2022.5l2%202M24.5%207.5l-2%202M9.5%2022.5l-2%202'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../css/site.css">
+<link rel="canonical" href="https://tussy-van.de/pl/entsorgung.html"><link rel="alternate" hreflang="de" href="https://tussy-van.de/entsorgung.html"><link rel="alternate" hreflang="en" href="https://tussy-van.de/en/entsorgung.html"><link rel="alternate" hreflang="es" href="https://tussy-van.de/es/entsorgung.html"><link rel="alternate" hreflang="fr" href="https://tussy-van.de/fr/entsorgung.html"><link rel="alternate" hreflang="pl" href="https://tussy-van.de/pl/entsorgung.html"><link rel="alternate" hreflang="x-default" href="https://tussy-van.de/entsorgung.html"></head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html"><b>Tussy <em>Od</em></b></a>
+      <button class="nav-toggle" aria-label="Otwórz menu">☰</button>
+      <nav class="main-nav">
+        <a href="index.html">Strona główna</a>
+        <a href="reiseziele.html">Kierunki podróży</a>
+        <a href="polen.html">🇵🇱 Polska</a>
+        <a href="entsorgung.html" aria-current="page">Zrzut ścieków 🚽</a>
+        <a href="ratgeber.html">Poradniki</a>
+        <a href="blog.html">Blog</a>
+        <a href="shop.html">Sklep</a>
+        <a href="ueber-mich.html">O mnie</a>
+        <a class="btn btn-terra" href="https://www.youtube.com/@tussyvan?sub_confirmation=1" target="_blank" rel="noopener">▶ Subskrybuj</a>
+      <details class="lang-switch notranslate" translate="no"><summary aria-label="Wybierz język">PL</summary><div class="lang-options"><a href="https://tussy-van.de/entsorgung.html" hreflang="de" lang="de">Deutsch</a><a href="https://tussy-van.de/en/entsorgung.html" hreflang="en" lang="en">English</a><a href="https://tussy-van.de/es/entsorgung.html" hreflang="es" lang="es">Español</a><a href="https://tussy-van.de/fr/entsorgung.html" hreflang="fr" lang="fr">Français</a><a href="https://tussy-van.de/pl/entsorgung.html" hreflang="pl" lang="pl" aria-current="page">Polski</a></div></details></nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Dostawy i utylizacja 🚽</span>
+        <h1 class="display-xl">Stacje utylizacji w Europie</h1>
+        <span class="hand">5 356 stacji w 36 krajach</span>
+        <p class="lead" style="margin-top:1rem;max-width:48em">Znajdź stacje utylizacji kaset toaletowych i szarej wody w całej Europie. Wybierz kraj na mapie lub wyszukaj bezpośrednio według lokalizacji, kodu pocztowego lub nazwy stacji.</p>
+      </div>
+
+      <div class="europa-stations reveal" id="europa">
+        <p>Pełny inwentarz łączy listę atlasów na pokładzie <b>"Stacje Utylizacji Europy" (stan na 2020 rok)</b> z moimi starannie wyselekcjonowanymi dodatkami. Pozycje na mapie są przybliżone kodem pocztowym i miastem; kliknięcie na pinezkę otwiera pełny adres w Google Maps.</p>
+        <div class="dest-filter" data-eu-filter aria-label="Stacje utylizacji filtrów według kraju"></div>
+        <div class="eu-mapwrap">
+          <div data-eu-map="../img/europe-map.svg" aria-label="Mapa Europy z punktami utylizacji dla biwakowiczów"></div>
+        </div>
+        <p class="eu-count" data-eu-count></p>
+        <div class="eu-searchbox">
+          <label for="eu-station-search"><b>Stacja poszukiwawcza</b></label>
+          <input id="eu-station-search" data-eu-search type="search" placeholder="Miasto, kod pocztowy lub nazwa stacji" autocomplete="off">
+        </div>
+        <div class="eu-results" data-eu-list aria-live="polite"></div>
+        <p class="eu-source">Dane adresowe: Onboard Atlas 2020 · Pozycje na mapie: <a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>) · Prosimy o sprawdzenie informacji przed przyjazdem.</p>
+      </div>
+
+      <div class="section-head subsection-head reveal" id="polen">
+        <span class="eyebrow">Polska szczegółowo 🇵🇱</span>
+        <h2 class="display-lg">MOP i obsługa kamperów w Polsce</h2>
+        <p class="lead">Wiele polskich miejsc odpoczynku wzdłuż autostrad i ekspresowych posiada stacje autobusów sanitarnych z toaletami chemicznymi i szarą wodą. Poniższa specjalna mapa pokazuje te punkty wraz z innymi ofertami dla kamperów.</p>
+      </div>
+
+      <div class="pl-layout">
+        <div class="pl-mapwrap reveal">
+          <div data-pl-map="../img/europe-map.svg" data-preselect-kat="entsorgung,camperservice" aria-label="Mapa Polski z punktami utylizacji dla biwakowiczów"></div>
+          <div class="hint" style="justify-content:center">📍 Wstępnie filtrowane: 🚽 Utylizacja i 🆑 serwis kampera. MOP prezentują swoje zarejestrowane urządzenia oddzielnie: toaletę, prysznic i utylizację.</div>
+          <div class="pl-live-tools">
+            <strong>Wyszukuj na żywo w ruchu</strong>
+            <p>Woda słodka i LPG często się zmieniają. Te wyszukiwania otwierają aktualne mapy zewnętrzne — prosimy sprawdzić dostępność na miejscu.</p>
+            <div class="pl-live-actions">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Trinkwasser+Wohnmobil+Polen" target="_blank" rel="noopener">💧 Znajdowanie wody słodkiej/pitnej</a>
+              <a href="https://www.mylpg.eu/stations/poland/" target="_blank" rel="noopener">⛽ Znajdź LPG/Autogas</a>
+            </div>
+          </div>
+          <details class="pl-legende">
+            <summary>Kliknij na legendę i kategorie</summary>
+            <div data-pl-legende></div>
+          </details>
+        </div>
+
+        <div class="reveal" data-delay="1">
+          <div class="pl-search">
+            <input type="search" data-pl-search placeholder="Szukasz miejsca lub autostrady ..." aria-label="Przeglądaj punkty utylizacji">
+          </div>
+          <span class="pl-filterlabel">Region</span>
+          <div class="dest-filter" data-pl-filter></div>
+          <span class="pl-filterlabel">Kategoria</span>
+          <div class="dest-filter" data-pl-catfilter></div>
+          <p class="pl-count" data-pl-count></p>
+          <div class="pl-grid" data-pl-grid></div>
+          <p class="pl-empty" style="display:none">Nie mam jeszcze punktu na ten wybór — spróbuj innego regionu lub kategorii.</p>
+        </div>
+      </div>
+
+      <div class="prose reveal" style="margin-top:3rem;max-width:52em">
+        <h2>Jak prawidłowo się pozbyć — Przewodnik szybkiego startu</h2>
+        <ul>
+          <li><b>Kaseta toaletowa</b> opróżnia się wyłącznie na wyznaczonych stacjach toalet chemicznych (autobus toaletowy / obsługa kamperów) — nigdy do zwykłych toalet, umywalki ani rynien. Następnie dokładnie spłucz i pozostaw stację w czystości.</li>
+          <li><b>szara woda</b> (Woda do płukania i prysznica) należy do wyznaczonego wlotu gruntowego — nie do łąki, lasu czy wąwozu drogowego. Nawet "tylko woda do mycia naczyń" zawiera tłuszcze i surfaktanty.</li>
+          <li><b>woda słodka</b> Uzupełniasz go w wyznaczonych punktach — ale tylko własnym wężem bezpiecznym dla żywności. Czy woda jest dobrej jakości pitnej, ujawniają lokalne oznakowania.</li>
+          <li><b>Informacje bez gwarancji:</b> Sprzęt może się zmieniać — krótko sprawdź oznakowanie na miejscu.</li>
+        </ul>
+        <p>Więcej na ten temat: <a href="blog/polen-legal-uebernachten.html">Gdzie legalnie można przenocować w Polsce? →</a> · <a href="ratgeber/camping-knigge.html">Etykieta biwakowa →</a> · <a href="blog/trockentrenntoilette-erfahrung.html">Moje doświadczenia z suchą toaletą rozdzielającą →</a></p>
+
+        <h3>Moja wyselekcjonowana selekcja według kraju</h3>
+
+        <details class="box">
+          <summary><b>🇩🇪 Niemcy</b> — Wybór według krajów związkowych</summary>
+          <p><b>Badenia-Wirtembergia:</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Stellplatz+P1+Blauwiese+Lindau" target="_blank" rel="noopener">Pitch P1 Blauwiese, Lindau (Jezioro Bodeńskie)</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Wohnmobilplatz+Freizeitzentrum+N%C3%BCrtingen" target="_blank" rel="noopener">Miejsce kamperów w centrum rekreacyjnym Nürtingen</a></p>
+          <p><b>Bawaria:</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Wohnmobil-Park+Schwangau" target="_blank" rel="noopener">Schwangau Motor Park (w pobliżu Neuschwanstein)</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Wohnmobilhafen+Arterhof+Bad+Birnbach" target="_blank" rel="noopener">Port kamperów w Arterhof, Bad Birnbach</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Reisemobilstellplatz+Neue+Welt+Memmingen" target="_blank" rel="noopener">Miejsce parkingowe Neue Welt, Memmingen</a></p>
+          <p><b>Berlin i Brandenburgia:</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Wohnmobilhafen+Berlin+Chausseestra%C3%9Fe" target="_blank" rel="noopener">Kamper Harbor Berlin</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Wohnmobilstellplatz+Spreeauenpark+Cottbus" target="_blank" rel="noopener">Spreeauenpark, Cottbus</a></p>
+          <p><b>Hesja:</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Reisemobilhafen+Wiesbaden" target="_blank" rel="noopener">Zatoka Kempingowa Wiesbaden</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=W%C3%A4ller+Camp+Mengerskirchen" target="_blank" rel="noopener">Obóz Wäller, Mengerskirchen</a></p>
+          <p><b>Meklemburgia-Pomorze Przednie:</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Campingplatz+Ecktannen+Waren" target="_blank" rel="noopener">Kemping Ecktannen, Waren (Müritz)</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Wohnmobilstellplatz+Rerik" target="_blank" rel="noopener">Parking nad Bałtykiem Rerik</a></p>
+          <p><b>Dolna Saksonia i Brema:</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Reisemobilhafen+nautimo+Wilhelmshaven" target="_blank" rel="noopener">Nautimo Kamphome Harbor, Wilhelmshaven</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Stellplatz+S%C3%BClzwiesen+L%C3%BCneburg" target="_blank" rel="noopener">Nad Sülzwiesen, Lüneburg</a></p>
+          <p><b>Nadrenia Północna-Westfalia:</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Reisemobilstellplatz+Am+Werl+Rheda-Wiedenbr%C3%BCck" target="_blank" rel="noopener">W Werl, Rheda-Wiedenbrück</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Erholungsgebiet+Waldvelen+Velen" target="_blank" rel="noopener">Waldvelen, Velen</a></p>
+          <p><b>Nadrenia-Palatynat i Saara:</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Reisemobilpark+Treviris+Trier" target="_blank" rel="noopener">Treviris Kamphome Park, Trewir</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Stellplatz+LA+OLA+Landau" target="_blank" rel="noopener">Przy basenie rekreacyjnym LA OLA, Landau</a></p>
+          <p><b>Saksonia:</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Stellplatz+Wiesentorstra%C3%9Fe+Dresden" target="_blank" rel="noopener">Wiesentorstraße, Drezno</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Reisemobil-Stellplatz+Melinenburg+Leipzig" target="_blank" rel="noopener">Melinenburg, Lipsk</a></p>
+          <p><b>Saksonia-Anhalt i Turyngia:</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Campingpark+Erfurt" target="_blank" rel="noopener">Park Kempingowy w Erfurcie</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Wohnmobilstellplatz+Eisleben" target="_blank" rel="noopener">Parking lot Lutherstadt Eisleben</a></p>
+          <p><b>Szlezwik-Holsztyn i Hamburg:</b> <a href="https://www.google.com/maps/search/?api=1&amp;query=Wohnmobilplatz+Hamburg+Finkenrieker+Hauptdeich" target="_blank" rel="noopener">Miejsce kamperów Hamburg</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Camping+Klausdorfer+Strand+Fehmarn" target="_blank" rel="noopener">Plaża Klausdorf, Fehmarn</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Wohnmobilplatz+Heide" target="_blank" rel="noopener">Miejsce kamperów Heide</a></p>
+        </details>
+
+        <details class="box">
+          <summary><b>🇦🇹 Austria</b></summary>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Reisemobilstellplatz+Wien+Perfektastra%C3%9Fe" target="_blank" rel="noopener">Parking dla kamperów w Wiedniu</a> — Perfektastraße 49–53, 1230 Wiedeń</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Reisemobilstellplatz+Salzburg+Carl-Zuckmayer-Stra%C3%9Fe" target="_blank" rel="noopener">Parking kamperów w Salzburgu</a> — Carl-Zuckmayer-Straße 26</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Panorama+Camp+Zell+am+See" target="_blank" rel="noopener">Panorama Camp Zell am See</a> — Seeuferstraße 196</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Reisemobilstellplatz+Graz+Martinhofstra%C3%9Fe" target="_blank" rel="noopener">Parking dla kamperów w Grazu</a> — Martinhofstraße 3</li>
+          </ul>
+        </details>
+
+        <details class="box">
+          <summary><b>🇨🇭 Szwajcaria</b></summary>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Caravan+Service-Center+Interlaken" target="_blank" rel="noopener">Centrum Obsługi przyczep kempingowych Interlaken</a> — Ulica Fabryczna 21</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Camping+Jungfrau+Lauterbrunnen" target="_blank" rel="noopener">Kemping Jungfrau, Lauterbrunnen</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Alpencamping+Meiringen" target="_blank" rel="noopener">Kemping alpejski Meiringen</a> — Brünigstraße 47</li>
+          </ul>
+        </details>
+
+        <details class="box">
+          <summary><b>🇮🇹 Włochy</b> — Gardasee &amp; Co.</summary>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Area+Camper+Al+Porto+Peschiera+del+Garda" target="_blank" rel="noopener">Kemping "Al Porto", Peschiera del Garda</a> — Via Milano 43</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+La+Serenella+Bardolino" target="_blank" rel="noopener">Parking La Serenella, Bardolino</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Parco+Termale+del+Garda+Col%C3%A0+di+Lazise+camper" target="_blank" rel="noopener">Parking kempingowy przy Parco Termale, Colà di Lazise</a></li>
+          </ul>
+        </details>
+
+        <details class="box">
+          <summary><b>🇫🇷 Francja</b></summary>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Port+de+Plaisance+Colmar+camping+car" target="_blank" rel="noopener">Port de Plaisance, Colmar (Alzacja)</a> — Rue du Canal</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Aire+de+camping-car+Ribeauvill%C3%A9" target="_blank" rel="noopener">Obszar Camping Van, Ribeauvillé (Alzacja)</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Aire+camping-car+La+Bidonni%C3%A8re+Ardevon" target="_blank" rel="noopener">Aire La Bidonnière, Ardevon</a> — w Mont-Saint-Michel</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Aire+camping+car+Quai+de+la+Cale+Honfleur" target="_blank" rel="noopener">Nadjazd Honfleur (Normandia)</a> — Quai de la Cale</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+Colmyr+Annecy+camping+car" target="_blank" rel="noopener">Parking Colmyr, Annecy</a></li>
+          </ul>
+        </details>
+
+        <details class="box">
+          <summary><b>🇭🇷 Chorwacja</b></summary>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Camperstop+Felix+Krk" target="_blank" rel="noopener">Camperstop Felix, Krk</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Autocamp+Porton+Biondi+Rovinj" target="_blank" rel="noopener">Autocamp Porton Biondi, Rovinj (Istria)</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Camping+Bijela+Uvala+Pore%C4%8D" target="_blank" rel="noopener">Autocamp Bijela Uvala, Poreč (Istria)</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Camping+Brijesta" target="_blank" rel="noopener">Camping Brijesta</a> — w drodze do Dubrownika</li>
+          </ul>
+        </details>
+
+        <details class="box">
+          <summary><b>🇸🇮 Słowenia</b></summary>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Camperstop+Bled+Ljubljanska+cesta" target="_blank" rel="noopener">Przystanek kempingowy nad jeziorem, Bled</a> — Ljubljanska cesta 21</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Stellplatz+Pri+Kova%C4%8Du+Ljubljana" target="_blank" rel="noopener">Pri Kovaču pitch, Ljubljana-Dobrunje</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Nordijski+center+Planica" target="_blank" rel="noopener">Nordyckie Centrum Planica, Rateče</a></li>
+          </ul>
+        </details>
+
+        <details class="box">
+          <summary><b>🇳🇱 Holandia</b></summary>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Camperplaats+Amsterdam+Lutkemeerweg" target="_blank" rel="noopener">Kemping Amsterdam</a> — Droga Lutkemeer 149</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Amsterdam+City+Camp+Papaverweg" target="_blank" rel="noopener">Amsterdam CityCamp</a> — Papaverweg 55</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Stadscamping+Zeeland+Middelburg" target="_blank" rel="noopener">Kemping miejski Zeeland, Middelburg</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Camperplaats+Maastricht" target="_blank" rel="noopener">Kemping Maastricht</a> — Bosscherweg 35</li>
+          </ul>
+        </details>
+
+        <details class="box">
+          <summary><b>🇧🇪 Belgia &amp; 🇱🇺 Luksemburg</b></summary>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Stellplatz+Vogelzang+Antwerpen" target="_blank" rel="noopener">Parking Vogelzang, Antwerpia</a> — Vogelzanglaan 7–9</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Wohnmobilstellplatz+Remich+Route+du+Vin" target="_blank" rel="noopener">Parking kamperów Remich (Mosel)</a> — Route du Vin 2</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Parkplatz+camping+car+Mondorf-les-Bains" target="_blank" rel="noopener">Parking Mondorf-les-Bains</a></li>
+          </ul>
+        </details>
+
+        <details class="box">
+          <summary><b>🇩🇰 Dania · 🇸🇪 Szwecja · 🇳🇴 Norwegia</b></summary>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Svanem%C3%B8llehavnen+autocamper+K%C3%B8benhavn" target="_blank" rel="noopener">Parking Svanemøllehavnen, Kopenhaga</a> — Pąki łabędzia 7</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Marselisborg+Havn+Aarhus+autocamper" target="_blank" rel="noopener">Port Marselisborg, Aarhus</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=L%C3%A5ngholmens+Husbilscamping+Stockholm" target="_blank" rel="noopener">Långholmen Kamphome Camping, Sztokholm</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Liseberg+motorhome+park+Skat%C3%A5s+G%C3%B6teborg" target="_blank" rel="noopener">Liseberg Kamphome Park, Göteborg</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Sj%C3%B8lyst+Marina+bobilparkering+Oslo" target="_blank" rel="noopener">Marina Sjølyst, Oslo</a> — Drammensveien 164</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Bobilparkering+Hjelsetgarden+%C3%85lesund" target="_blank" rel="noopener">Parking dla kamperów Hjelsetgarden, Ålesund</a></li>
+          </ul>
+        </details>
+
+        <details class="box">
+          <summary><b>🇪🇸 Hiszpania i 🇵🇹 Portugalia</b></summary>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=CityStop+Barcelona+Rambla+Guipuscoa" target="_blank" rel="noopener">CityStop Barcelona</a> - Rambla Guipúscoa 163–185</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Valencia+Camper+Park+B%C3%A9tera" target="_blank" rel="noopener">Valencia Camper Park, Bétera</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Area+de+Autocaravanas+Sevilla+Centro" target="_blank" rel="noopener">Obszar Autocaravan Sevilla Center</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%81rea+de+Servi%C3%A7o+Autocaravanas+Lagos+EN125" target="_blank" rel="noopener">Obszar Serwisowy, Lagos (Algarve)</a> — EN 125 na stadionie</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Figueira+Caravan+Park+Budens" target="_blank" rel="noopener">Park kampusów Figueira, Budens (Algarve)</a></li>
+          </ul>
+        </details>
+
+        <details class="box">
+          <summary><b>🇨🇿 Czechy i 🇭🇺 Węgry</b></summary>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Caravan+Camping+C%C3%ADsa%C5%99sk%C3%A1+louka+Praha" target="_blank" rel="noopener">Kemping dla przyczep kempingowych Císařská louka, Praga-Smíchov</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Camp+Herzog+Praha+Troja" target="_blank" rel="noopener">Obóz Herzog, Praga-Troja</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Arena+Camping+Budapest" target="_blank" rel="noopener">Kemping na arenie, Budapeszt</a> — Pilisi out 7</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Mobilcamping+Balaton+S%C3%BCd+Balatonszemes" target="_blank" rel="noopener">Mobilny Kemping Balaton Południe, Balatonszemes</a></li>
+          </ul>
+        </details>
+
+        <h3>🔎 Znajdź jeszcze więcej stacji</h3>
+        <p>Jeśli spontanicznie szukasz przystanku po drodze, oto moje zaufane katalogi:</p>
+        <ul>
+          <li><a href="https://www.bordatlas.de/" target="_blank" rel="noopener">Atlas pokładowy</a> — klasyka: tysiące stanowisk z zapasami/utylizaczami, również posortowane według kodu pocztowego jako darmowy plik PDF.</li>
+          <li><a href="https://stellplatz.info/reisemobilstellplatz/deutschland/entsorgungsstationen" target="_blank" rel="noopener">Stellplatz.info</a> — duża mapa wspólnotowa z filtrem do utylizacji kaset.</li>
+          <li><a href="https://www.alpacacamping.de/entsorgungsstationen" target="_blank" rel="noopener">AlpacaCamping</a> — Wyraźna mapa wyszukiwania dla Niemiec i Austrii.</li>
+          <li><a href="https://park4night.com/" target="_blank" rel="noopener">Park4Night</a> — Aplikacja na Foreign Resort: status na żywo i opinie od innych uczestników.</li>
+        </ul>
+
+        <p>Uwaga: Duży importowany zestaw danych pochodzi z 2020 roku. Możliwe są zmiany, zamknięcia i nowe stacje. 💛</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <span>© 2026 Tussy Van · Wysiąść z 💙 vana</span>
+        <div class="social-icons compact">
+          <a href="https://www.youtube.com/@tussyvan" target="_blank" rel="noopener" aria-label="Tussy Van na YouTube"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"></path></svg></a>
+          <a href="https://www.instagram.com/tussy_van/" target="_blank" rel="noopener" aria-label="Tussy Van na Instagramie"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.5.4 1.1.4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.5.2-1.1.4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.5-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.5-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 1.9c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1Zm0 3.3a5.1 5.1 0 1 1 0 10.2 5.1 5.1 0 0 1 0-10.2Zm0 1.9a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.3-3.4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"></path></svg></a>
+        </div>
+        <nav>
+          <a href="impressum.html">Imprint</a>
+          <a href="datenschutz.html">Ochrona danych</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" role="dialog" aria-label="Ustawienia plików cookie">
+    <h3>🍪 W skrócie:</h3>
+    <p>Ta strona wykorzystuje wyłącznie technicznie niezbędną pamięć. Filmy na YouTube będą ładowane tylko po Twojej zgodzie. Co to może być?</p>
+    <div class="row">
+      <button class="btn btn-neon" data-consent="all">Wszystko w porządku</button>
+      <button class="btn" data-consent="essential">Tylko konieczne</button>
+    </div>
+  </div>
+
+  <script src="../js/i18n-pl.js"></script><script src="../js/lenis.min.js"></script>
+  <script src="../js/polen-camper.js"></script>
+  <script src="../js/polen-naturplaetze.js"></script>
+  <script src="../js/polen-services.js"></script>
+  <script src="../js/polen-map-app.js"></script>
+  <script src="../js/polen.js"></script>
+  <script src="../js/entsorgung-europa-daten.js"></script>
+  <script src="../js/entsorgung-europa-bordatlas.js"></script>
+  <script src="../js/entsorgung-europa.js"></script>
+  <script src="../js/site.js"></script>
+</body>
+</html>

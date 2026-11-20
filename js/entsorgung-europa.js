@@ -18,7 +18,8 @@
   if (!stage || !data.length) return;
 
   function countryName(cc) {
-    return names[cc] || cc;
+    var name = names[cc] || cc;
+    return window.TV_t ? window.TV_t(name) : name;
   }
 
   function countryNamePlain(cc) {

@@ -191,6 +191,7 @@ window.POLEN_MAP_APP_V2 = function () {
       placeName(place) + "\n" +
       (typeof place.lat === "number" ? "GPS: " + place.lat.toFixed(5) + ", " + place.lon.toFixed(5) + "\n" : "") +
       (english ? "Reason / change: " : "Grund / Änderung: ");
+    if (window.TV_t) { subject = window.TV_t(subject); body = window.TV_t(body); }
     return "mailto:tussyvan@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   }
 
@@ -204,7 +205,7 @@ window.POLEN_MAP_APP_V2 = function () {
   }
 
   function formatNumber(value) {
-    return Number(value).toLocaleString(english ? "en-GB" : "de-DE");
+    return Number(value).toLocaleString(document.documentElement.lang || "de");
   }
 
   function noKatFilter() { return Object.keys(state.kats).length === 0; }
@@ -248,6 +249,9 @@ window.POLEN_MAP_APP_V2 = function () {
       categories.map(function (category) { return category.label + " " + category.labelEn; }).join(" "),
       place.city || "", place.lat || "", place.lon || ""
     ].join(" ").toLowerCase();
+    if (window.TV_t) {
+      place._plSearch += " " + window.TV_t([placeName(place, false), placeBlurb(place, false), placeMeta(place, false), categories.map(function (category) { return category.label; }).join(" ")].join(" ")).toLowerCase();
+    }
   });
 
   var preEl = document.querySelector("[data-preselect-kat]");

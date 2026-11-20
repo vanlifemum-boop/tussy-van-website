@@ -563,6 +563,7 @@
   function shareResult() {
     if (!state.lastResult) return;
     var text = "Ich habe " + state.lastResult.score + " Punkte bei Tussy Van – Pack & Go geschafft! " + "★".repeat(state.lastResult.stars) + " #TussyVan";
+    if (window.TV_t) text = window.TV_t(text);
     var data = { title: "Tussy Van – Pack & Go", text: text, url: window.location.href };
     if (navigator.share) {
       navigator.share(data).catch(function () {});

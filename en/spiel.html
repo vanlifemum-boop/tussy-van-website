@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#071a3a">
+  <title>Pack &amp; Go — the Tussy Van game</title>
+  <meta name="description" content="Pack the camper, keep the weight balanced, and keep your essentials within reach — the free Tussy Van browser game.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tussy Van — Pack &amp; Go">
+  <meta property="og:description" content="From full. Clear your head. Play the Tussy Van Pack Challenge directly in your browser.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23071a3a'/%3E%3Cpath%20d='M5%2011h17l5%205v8H5z'%20fill='%231b8a52'%20stroke='%23fff500'%20stroke-width='2'/%3E%3Ccircle%20cx='10'%20cy='24'%20r='3'%20fill='%23fff500'/%3E%3Ccircle%20cx='23'%20cy='24'%20r='3'%20fill='%23fff500'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/game.css">
+<link rel="canonical" href="https://tussy-van.de/en/spiel.html"><link rel="alternate" hreflang="de" href="https://tussy-van.de/spiel.html"><link rel="alternate" hreflang="en" href="https://tussy-van.de/en/spiel.html"><link rel="alternate" hreflang="es" href="https://tussy-van.de/es/spiel.html"><link rel="alternate" hreflang="fr" href="https://tussy-van.de/fr/spiel.html"><link rel="alternate" hreflang="pl" href="https://tussy-van.de/pl/spiel.html"><link rel="alternate" hreflang="x-default" href="https://tussy-van.de/spiel.html"></head>
+<body class="game-page">
+  <header class="site-header game-site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="Tussy Van — Homepage">
+        <svg viewbox="0 0 64 44" aria-hidden="true">
+          <path d="M5 9 L44 9 L52 16 L60 21 L60 33 L5 33 Z" fill="#18874f" stroke="#26251f" stroke-width="2.5" stroke-linejoin="round"></path>
+          <path d="M5 26 L60 26 L60 33 L5 33 Z" fill="#0d5932" stroke="#26251f" stroke-width="1.8" stroke-linejoin="round"></path>
+          <rect x="9" y="12" width="20" height="8" fill="#cfe6ff" stroke="#26251f" stroke-width="2"></rect>
+          <path d="M33 12 L45 12 L52 19 L33 19 Z" fill="#cfe6ff" stroke="#26251f" stroke-width="2" stroke-linejoin="round"></path>
+          <circle cx="18" cy="33" r="6" fill="#26251f"></circle><circle cx="18" cy="33" r="2.5" fill="#c9c4b2"></circle>
+          <circle cx="48" cy="33" r="6" fill="#26251f"></circle><circle cx="48" cy="33" r="2.5" fill="#c9c4b2"></circle>
+          <circle cx="40" cy="23" r="1.8" fill="#ffff00"></circle><circle cx="26" cy="23" r="1.5" fill="#ffff00"></circle>
+        </svg>
+        <b>Tussy <em>From</em></b>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="reiseziele.html">Destinations</a>
+        <a href="entsorgung.html">Waste disposal 🚽</a>
+        <a href="ratgeber.html">Guides</a>
+        <a href="blog.html">Blog</a>
+        <a href="spiel.html" aria-current="page">Game 🎮</a>
+      <details class="lang-switch notranslate" translate="no"><summary aria-label="Choose language">EN</summary><div class="lang-options"><a href="https://tussy-van.de/spiel.html" hreflang="de" lang="de">Deutsch</a><a href="https://tussy-van.de/en/spiel.html" hreflang="en" lang="en" aria-current="page">English</a><a href="https://tussy-van.de/es/spiel.html" hreflang="es" lang="es">Español</a><a href="https://tussy-van.de/fr/spiel.html" hreflang="fr" lang="fr">Français</a><a href="https://tussy-van.de/pl/spiel.html" hreflang="pl" lang="pl">Polski</a></div></details></nav>
+    </div>
+  </header>
+
+  <main class="game-stage">
+    <div class="pixel-sky" aria-hidden="true"></div>
+    <div class="game-wrap">
+      <div class="game-title">
+        <span class="game-label">Tussy Van Original</span>
+        <h1>PACK <span>&amp;</span> GO</h1>
+        <p>From full. Clear your head.</p>
+      </div>
+
+      <section class="game-console" aria-label="Tussy Van Pack &amp; Go">
+        <div class="game-hud" aria-live="polite">
+          <div class="hud-item">
+            <span>Level</span>
+            <strong id="levelValue">1/3</strong>
+          </div>
+          <div class="hud-item hud-score">
+            <span>Points</span>
+            <strong id="scoreValue">0000</strong>
+          </div>
+          <div class="hud-item hud-time">
+            <span>Time</span>
+            <strong id="timeValue">01:15</strong>
+          </div>
+        </div>
+
+        <div class="mission-bar">
+          <div>
+            <span class="mission-count" id="loadValue">Charge 0/7</span>
+            <h2 id="missionTitle">weekend trip</h2>
+          </div>
+          <button class="sound-button" id="soundButton" type="button" aria-label="Mute" aria-pressed="true">♪</button>
+        </div>
+
+        <div class="game-grid-layout">
+          <section class="cargo-section" aria-labelledby="cargoTitle">
+            <div class="cargo-heading">
+              <h3 id="cargoTitle">cargo hold</h3>
+              <span id="selectedHint">Select an item</span>
+            </div>
+            <div class="van-cargo">
+              <div class="van-roof" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="cargo-grid" id="cargoGrid" role="grid" aria-label="Cargo hold with 6 columns and 8 rows"></div>
+              <div class="rear-door" aria-hidden="true"><span>Rear door · within reach</span></div>
+            </div>
+
+            <div class="meters">
+              <div class="meter-row">
+                <span>⚖ Balance</span>
+                <div class="meter-track"><i id="balanceMeter"></i></div>
+                <strong id="balanceValue">100%</strong>
+              </div>
+              <div class="meter-row">
+                <span>↙ Access</span>
+                <div class="meter-track"><i id="accessMeter"></i></div>
+                <strong id="accessValue">0%</strong>
+              </div>
+            </div>
+          </section>
+
+          <aside class="inventory-section" aria-labelledby="inventoryTitle">
+            <div class="inventory-heading">
+              <h3 id="inventoryTitle">Your cargo</h3>
+              <span>Tap, rotate, invite</span>
+            </div>
+            <div class="inventory" id="inventory"></div>
+            <div class="selected-card" id="selectedCard">
+              <span class="selected-icon" id="selectedIcon">☝</span>
+              <span><b id="selectedName">Nothing chosen yet</b><small id="selectedMeta">First, tap an item.</small></span>
+            </div>
+          </aside>
+        </div>
+
+        <div class="game-controls" aria-label="Game controls">
+          <button class="pixel-button primary" id="rotateButton" type="button" disabled><span aria-hidden="true">↻</span> Rotate</button>
+          <button class="pixel-button" id="undoButton" type="button" disabled><span aria-hidden="true">↶</span> Back</button>
+          <button class="pixel-button danger" id="restartButton" type="button"><span aria-hidden="true">×</span> New</button>
+        </div>
+
+        <p class="game-status" id="gameStatus" role="status" aria-live="polite">Ready for the first load.</p>
+
+        <div class="game-overlay show" id="gameOverlay" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+          <div class="overlay-card">
+            <span class="overlay-kicker">Level 1</span>
+            <h2 id="overlayTitle">weekend trip</h2>
+            <p id="overlayText">Pack everything up. Water and coolers should remain within reach at the rear door.</p>
+            <ul class="how-to" id="howTo">
+              <li><span>1</span> Select item</li>
+              <li><span>2</span> Rotate as needed</li>
+              <li><span>3</span> Tap open space in the van</li>
+            </ul>
+            <div class="overlay-score" id="overlayScore" hidden></div>
+            <div class="overlay-actions">
+              <button class="pixel-button primary big" id="overlayPrimary" type="button">Let's get started</button>
+              <button class="pixel-button" id="shareButton" type="button" hidden>Share result</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <p class="game-note">A standalone Tussy van game · free · without registration</p>
+    </div>
+  </main>
+
+  <footer class="game-footer">
+    <div class="wrap">
+      <span>© 2026 Tussy Van</span>
+      <nav aria-label="Foot navigation">
+        <a href="entsorgung.html">Disposal Stations</a>
+        <a href="impressum.html">Legal notice</a>
+        <a href="datenschutz.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../js/i18n-en.js"></script><script src="../js/game.js"></script>
+</body>
+</html>

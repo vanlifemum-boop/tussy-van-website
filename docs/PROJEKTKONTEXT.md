@@ -29,65 +29,37 @@ gewünscht war, lässt sich aus dem verfügbaren Ausschnitt nicht bestimmen.
 
 ## Mehrsprachigkeit
 
-### Im Repository geprüft
+Aktualisierung vom 20.11.2026: Der aktuelle Auftrag ist die Veröffentlichung
+aller Sprachversionen einschließlich Spanisch, Französisch und Polnisch.
 
-| Sprache | HTML-Dateien | Umsetzung |
+| Sprache | HTML-Dateien | Pfad |
 |---|---:|---|
-| Deutsch | 57 | Quelldateien im Hauptverzeichnis, `blog/` und `ratgeber/` |
-| Englisch | 43 | Statische Seiten unter `en/`, Generator und Laufzeit-Wörterbuch vorhanden |
-| Französisch | 0 | Kein Verzeichnis `fr/` vorhanden |
-| Polnisch | 0 | Kein Verzeichnis `pl/` vorhanden |
-| Spanisch | 0 | Kein Verzeichnis `es/` vorhanden |
+| Deutsch | 57 | `/` |
+| Englisch | 57 | `/en/` |
+| Spanisch | 57 | `/es/` |
+| Französisch | 57 | `/fr/` |
+| Polnisch | 57 | `/pl/` |
 
-- [scripts/generate_english_site.py](../scripts/generate_english_site.py) ist auf
-  Englisch ausgerichtet: Ausgabe nach `en/`, Cache
-  `scripts/translations-de-en.json`, Wörterbuch `js/i18n-en.js`.
-- [js/site.js](../js/site.js), Funktion `setupLanguageSwitch`, bietet nur
-  Deutsch und Englisch an und bildet die Zieladresse aus dem aktuellen Pfad.
-- Für 14 deutsche Seiten fehlt ein englisches Gegenstück.
-  Der Sprachwechsel kann deshalb auf diesen Seiten auf nicht vorhandene
-  Dateien zeigen.
-- [js/polen-map-app.js](../js/polen-map-app.js) verwendet ebenfalls eine
-  Deutsch-/Englisch-Unterscheidung für dynamische Texte.
+Die vorher fehlenden 14 englischen Seiten sind enthalten. Die neuen Fassungen
+werden aus den aktuellen deutschen Quellen erzeugt. Die Übersetzungen sind
+maschinell erstellt; die rechtlichen Volltexte bleiben auf den deutschen
+Originalseiten, zu denen jede Sprachfassung verlinkt.
 
-Damit ist das Fehlen der drei gewünschten Sprachen im geprüften Code erklärt.
-Dies ist ein Repository-Befund; die ausgelieferte Website wurde bei dieser
-Zusammenführung nicht separat im Browser geprüft.
+Zuständig sind `scripts/generate_languages.py`, die gespeicherten Wörterbücher
+unter `translations/` und die Laufzeitvorlage `scripts/runtime-i18n.js`.
+Der frühere Google-Endpunkt war bei der Erstellung nicht verfügbar; für die
+neuen statischen Übersetzungen wurde Microsoft Translator genutzt. Auf der
+veröffentlichten Website ist kein externer Übersetzungsdienst eingebettet.
 
-### Offene Umsetzung
+Die Sprachauswahl ist direkt im HTML enthalten und funktioniert ohne JavaScript.
+Sie verweist auch in verschachtelten Blog- und Ratgeberpfaden auf alle fünf
+Gegenstücke. Jede Seite enthält Sprachkennzeichnung, kanonische URL und
+`hreflang`-Verweise; die Sitemap umfasst die indexierbaren Sprachseiten.
 
-- [ ] Französisch, Polnisch und Spanisch für die Website ergänzen.
-- [ ] Dafür die bestehende Generierung und Sprachumschaltung erweitern oder
-      die Integrationsart anhand des vollständigen Übersetzungs-Chats festlegen.
-- [ ] Navigation, Seiteninhalte, Metadaten, Bildbeschreibungen und dynamisch
-      erzeugte Karten-/Filtertexte in der Sprachabdeckung berücksichtigen.
-- [ ] Interne Links und Sprachwechsel auf existierende Zielseiten prüfen;
-      Sprache beim Wechsel zwischen Beiträgen erhalten.
-- [ ] Die 14 fehlenden englischen Gegenstücke nachziehen.
-- [ ] `lang`, Sprachverweise und Sitemap mit den tatsächlich verfügbaren
-      Sprachseiten abgleichen.
-- [ ] Sprachwechsel auf Startseite, Blog, Ratgeber, Polenkarte und Spiel
-      einschließlich verschachtelter Pfade prüfen.
-
-Diese Prüfpunkte sind technische Folgerungen aus dem Codeabgleich und keine
-zusätzlich überlieferten Nutzerwünsche.
-
-### Fehlende englische Gegenstücke
-
-- `en/blog/airlineschienen-roter-t4.html`
-- `en/blog/blauer-t4-getriebeschaden.html`
-- `en/blog/camper-packliste-was-habe-ich-dabei.html`
-- `en/blog/drei-kraftstoffe-benzin-gas-dieselheizung.html`
-- `en/blog/erste-camper-toilette.html`
-- `en/blog/gasanlage-kofferraum-reserverad.html`
-- `en/blog/kochen-backen-kleinster-raum.html`
-- `en/blog/mehr-stauraum-kofferraum-t4.html`
-- `en/blog/piaski-granica-weichselnehrung.html`
-- `en/blog/roter-t4-motorschaden-autobahn.html`
-- `en/blog/winter-energylandia-polen.html`
-- `en/blog/zehn-monate-leben-kleinster-raum.html`
-- `en/blog/zusatzbatterie-unterm-sitz-strom-laden.html`
-- `en/spiel.html`
+Die Prüfung erfolgt über `--validate-only` (alle Seiten und lokalen Verweise)
+und `node scripts/check_languages.mjs` (dynamische Übersetzung, Zähler,
+Spieltexte und Schutz vor wiederholter Übersetzung). Änderungen an den
+Polen-Koordinaten sind nicht Teil dieser Sprachveröffentlichung.
 
 ## Polen-Kartenpunkte
 

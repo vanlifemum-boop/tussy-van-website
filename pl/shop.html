@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sklep, rekomendacje i pobieranie — Tussy Van</title>
+  <meta name="description" content="Wybrane produkty partnerskie do gazu, wody i życia kampera, a także bezpłatne listy pakowania i listy kontrolne od Tussy Van.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%231b49c8'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='6'%20fill='%23ffff00'/%3E%3Cg%20stroke='%23ffff00'%20stroke-width='2.2'%20stroke-linecap='round'%3E%3Cpath%20d='M16%204v3M16%2025v3M4%2016h3M25%2016h3M7.5%207.5l2%202M22.5%2022.5l2%202M24.5%207.5l-2%202M9.5%2022.5l-2%202'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../css/site.css">
+  <style>
+    .partner-shop { margin-top: 2.8rem; }
+    .partner-shop .section-head { margin-bottom: 1.25rem; }
+    .affiliate-note {
+      display: flex; gap: 0.65rem 1rem; align-items: flex-start; flex-wrap: wrap;
+      margin: 1.25rem 0 1.5rem; padding: 1rem 1.15rem;
+      background: var(--paper-2); border: 2px solid var(--ink); border-radius: 14px;
+      color: var(--muted); font-size: 0.94rem; line-height: 1.55;
+    }
+    .affiliate-note strong { color: var(--ink); white-space: nowrap; }
+    .partner-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem; margin-top: 1.4rem;
+    }
+    .partner-card {
+      min-width: 0; overflow: hidden; display: grid; grid-template-rows: auto 1fr;
+      background: var(--white); border: 3px solid var(--ink); border-radius: 18px;
+      box-shadow: var(--shadow-sticker);
+    }
+    .partner-media {
+      min-height: 250px; padding: 1.1rem; display: grid; place-items: center;
+      background: var(--paper-2); border-bottom: 3px solid var(--ink);
+    }
+    .partner-media img {
+      display: block; width: 100%; height: 250px; object-fit: contain;
+      border-radius: 10px;
+    }
+    .partner-copy {
+      padding: 1.45rem; display: flex; flex-direction: column;
+      align-items: flex-start; gap: 0.75rem;
+    }
+    .partner-copy h3 { margin: 0; color: var(--ink); font-size: clamp(1.25rem, 2.2vw, 1.6rem); }
+    .partner-copy p { margin: 0; color: var(--muted); }
+    .partner-copy .btn { margin-top: auto; }
+    .partner-meta { font-size: 0.88rem; font-weight: 700; color: var(--blue-ink) !important; }
+    .partner-safety {
+      margin-top: 1.3rem; padding-left: 1rem; border-left: 4px solid var(--terra);
+      color: var(--muted); font-size: 0.9rem; line-height: 1.55;
+    }
+    @media (max-width: 760px) {
+      .partner-grid { grid-template-columns: 1fr; }
+      .partner-media { min-height: 220px; }
+      .partner-media img { height: 220px; }
+      .affiliate-note { display: block; }
+      .affiliate-note strong { display: block; margin-bottom: 0.3rem; }
+    }
+  </style>
+<link rel="canonical" href="https://tussy-van.de/pl/shop.html"><link rel="alternate" hreflang="de" href="https://tussy-van.de/shop.html"><link rel="alternate" hreflang="en" href="https://tussy-van.de/en/shop.html"><link rel="alternate" hreflang="es" href="https://tussy-van.de/es/shop.html"><link rel="alternate" hreflang="fr" href="https://tussy-van.de/fr/shop.html"><link rel="alternate" hreflang="pl" href="https://tussy-van.de/pl/shop.html"><link rel="alternate" hreflang="x-default" href="https://tussy-van.de/shop.html"></head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html"><b>Tussy <em>Od</em></b></a>
+      <button class="nav-toggle" aria-label="Otwórz menu">☰</button>
+      <nav class="main-nav">
+        <a href="index.html">Strona główna</a>
+        <a href="reiseziele.html">Kierunki podróży</a>
+        <a href="polen.html">🇵🇱 Polska</a>
+        <a href="entsorgung.html">Zrzut ścieków 🚽</a>
+        <a href="ratgeber.html">Poradniki</a>
+        <a href="blog.html">Blog</a>
+        <a href="shop.html" aria-current="page">Sklep</a>
+        <a href="ueber-mich.html">O mnie</a>
+        <a class="btn btn-terra" href="https://www.youtube.com/@tussyvan?sub_confirmation=1" target="_blank" rel="noopener">▶ Subskrybuj</a>
+      <details class="lang-switch notranslate" translate="no"><summary aria-label="Wybierz język">PL</summary><div class="lang-options"><a href="https://tussy-van.de/shop.html" hreflang="de" lang="de">Deutsch</a><a href="https://tussy-van.de/en/shop.html" hreflang="en" lang="en">English</a><a href="https://tussy-van.de/es/shop.html" hreflang="es" lang="es">Español</a><a href="https://tussy-van.de/fr/shop.html" hreflang="fr" lang="fr">Français</a><a href="https://tussy-van.de/pl/shop.html" hreflang="pl" lang="pl" aria-current="page">Polski</a></div></details></nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Sklep, rekomendacje i pliki do pobrania</span>
+        <h1 class="display-xl">Praktyczne do podróży.</h1>
+        <span class="hand">Wybrane produkty partnerskie i darmowe listy dla Camper Life</span>
+        <p class="lead" style="margin-top:1rem;max-width:46em">Znajdziesz tu wybrane rozwiązania dla gazu, wody i codziennego życia kempingowego. Zdecydowanie możesz kupić produkty partnerskie bezpośrednio od specjalisty od gazu; Wciąż możesz pobrać moje listy do pakowania i listy kontrolne za darmo.</p>
+      </div>
+
+      <section class="partner-shop" aria-labelledby="partnerprodukte">
+        <div class="section-head reveal">
+          <span class="eyebrow">Produkty partnerskie</span>
+          <h2 id="partnerprodukte" class="display-xl" style="font-size:clamp(1.8rem,4vw,3rem)">Nowości w Tussy-Van-Shop.</h2>
+          <span class="hand">Sprawdź u specjalisty od gazu i zamów tam</span>
+        </div>
+
+        <div class="affiliate-note reveal">
+          <strong>Reklama · Linki afiliacyjne*</strong>
+          <span>Jeśli kupisz przez oznaczony link, otrzymuję prowizję. Nie ponosisz żadnych dodatkowych kosztów. Zakup, płatność, wysyłka, konsultacje i zwroty realizowane są bezpośrednio przez Gasfachfrau GmbH.</span>
+        </div>
+
+        <div class="partner-grid">
+          <article class="partner-card reveal">
+            <div class="partner-media">
+              <img src="https://gasfachfrau.de/cdn/shop/products/dsc_0519-9d254a6f_535x.jpg?v=1638275588" alt="ALUGAS Travel Mate Tank Bottle" width="535" height="535" loading="lazy" referrerpolicy="no-referrer">
+            </div>
+            <div class="partner-copy">
+              <span class="sticker blue">Gaz i LPG</span>
+              <h3>ALUGAS Travel Mate Tank Bottle</h3>
+              <p>Wielokrotnie napełniana aluminiowa butelka zbiornikowa do kamperów i przyczep kempingowych. U specjalisty od gazów znajdziesz dostępne rozmiary, warianty systemów oraz odpowiednie akcesoria.</p>
+              <p class="partner-meta">Aktualne warianty, cena i dostępność w sklepie partnerskim</p>
+              <a class="btn btn-blue" href="https://collabs.shop/mlwbpq" target="_blank" rel="sponsored noopener noreferrer" aria-label="Zobacz ALUGAS Travel Mate u specjalisty ds. gazu – link afiliacyjny">Widok eksperta od gazu*</a>
+            </div>
+          </article>
+
+          <article class="partner-card reveal" data-delay="1">
+            <div class="partner-media">
+              <img src="https://cdn.shopify.com/s/files/1/0553/8276/9687/files/f4d5f5b0-4380-452c-82aa-a73dc34b9058.png?v=1788254378" alt="WaSH Innovation Pocket Bottle Mini do prysznica" width="800" height="800" loading="lazy" referrerpolicy="no-referrer">
+            </div>
+            <div class="partner-copy">
+              <span class="sticker terra">Woda i higiena</span>
+              <h3>Innowacje WaSH</h3>
+              <p>Kompaktowe rozwiązania wodne bez zasilania i stałego montażu: od składanego Pocket Sink Plus po Pocket Bottle Shower Mini dla standardowych butelek PET.</p>
+              <p class="partner-meta">Aktualne produkty, ceny i dostępność w sklepie partnerskim</p>
+              <a class="btn btn-terra" href="https://collabs.shop/rghmpk" target="_blank" rel="sponsored noopener noreferrer" aria-label="Obserwuj WaSH Innovation u specjalisty ds. gazu – link afiliacyjny">Widok eksperta od gazu*</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="partner-safety reveal"><b>Informacja o bezpieczeństwie:</b> Prosimy zawsze koordynować wybór, instalację i modyfikacje systemów gazu skroplonego z odpowiednio wykwalifikowanym organem. Aktualny produkt oraz instrukcje bezpieczeństwa w warsztacie eksperta gazowego są decydujące.</p>
+      </section>
+
+      <div class="section-head reveal" style="margin-top:4.5rem">
+        <span class="eyebrow">Darmowe pobieranie</span>
+        <h2 class="display-xl" style="font-size:clamp(1.8rem,4vw,3rem)">Listy na wynos.</h2>
+        <span class="hand">wydrukuj, powieś na drzwiach kampera, odhacz, ruszaj</span>
+      </div>
+
+      <div class="shop-grid">
+        <div class="shop-card reveal">
+          <span class="ph">🚐</span>
+          <h3>Duża lista rzeczy do pakowania dla kampera</h3>
+          <p>Wszystkie 7 obszarów do odhaczenia — od obowiązkowego sprzętu po listę "Zostań w domu". 1 strona, format A4.</p>
+          <a class="btn btn-neon" href="../downloads/tussy-van-camper-packliste.pdf" download>⬇ Darmowe pobranie (PDF)</a>
+        </div>
+        <div class="shop-card reveal" data-delay="1">
+          <span class="ph">🚗</span>
+          <h3>Lista pakowania na automatyczne biwakowanie</h3>
+          <p>Spanie w samochodzie, kombi lub SUV-ie: spanie, kuchnia, prąd i higiena — spakowane minimalistycznie. 1 strona, format A4.</p>
+          <a class="btn btn-neon" href="../downloads/tussy-van-packliste-auto-camping.pdf" download>⬇ Darmowe pobranie (PDF)</a>
+        </div>
+        <div class="shop-card reveal" data-delay="2">
+          <span class="ph">✅</span>
+          <h3>Lista kontrolna odlotów i harmonogram konserwacji</h3>
+          <p>Przed każdym wyjazdem, dwa razy w sezonie, przed zimą — lista drzwi kampera. 1 strona, format A4.</p>
+          <a class="btn btn-neon" href="../downloads/tussy-van-abfahrts-checkliste.pdf" download>⬇ Darmowe pobranie (PDF)</a>
+        </div>
+      </div>
+
+      <div class="section-head reveal" style="margin-top:4rem">
+        <span class="eyebrow">Wkrótce w sklepie 🛠</span>
+        <h2 class="display-xl" style="font-size:clamp(1.6rem,4vw,2.6rem)">Pojawia się tu więcej rzeczy.</h2>
+        <p class="lead" style="margin-top:.8rem;max-width:44em">Zanurz się w <a href="index.html#newsletter">Biuletyn</a> Pierwszy — wtedy będziesz pierwszy, który się dowie, kiedy się zacznie.</p>
+      </div>
+
+      <div class="shop-grid">
+        <div class="shop-card reveal">
+          <span class="ph">🚽</span>
+          <h3>Duży katalog utylizacji</h3>
+          <p>Wszystkie stacje zaopatrzenia i utylizacji jako praktyczny PDF do schowka — najpierw Polska, kolejne kraje w przyszłości.</p>
+          <span class="sticker">wkrótce</span>
+        </div>
+        <div class="shop-card reveal" data-delay="1">
+          <span class="ph">📖</span>
+          <h3>Książka</h3>
+          <p>Moje trasy po Europie i przewodniki DIY — zebrane i wydrukowane.</p>
+          <span class="sticker">wkrótce</span>
+        </div>
+        <div class="shop-card reveal" data-delay="2">
+          <span class="ph">💛</span>
+          <h3>Zestaw naklejek "The Blue"</h3>
+          <p>Oryginalne naklejki w neonowożółtym kolorze, odporne na warunki pogodowe dla Twojego vana.</p>
+          <span class="sticker">wkrótce</span>
+        </div>
+      </div>
+
+      <p class="reveal" style="margin-top:2.5rem;color:var(--muted);font-size:.9rem">Darmowe pliki PDF można udostępniać swobodnie — tylko sprzedaż jest zabroniona. © Tussy Van</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <span>© 2026 Tussy Van · Wysiąść z 💙 vana</span>
+        <div class="social-icons compact">
+          <a href="https://www.youtube.com/@tussyvan" target="_blank" rel="noopener" aria-label="Tussy Van na YouTube"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"></path></svg></a>
+          <a href="https://www.instagram.com/tussy_van/" target="_blank" rel="noopener" aria-label="Tussy Van na Instagramie"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.5.4 1.1.4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.5.2-1.1.4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.5-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.5-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 1.9c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1Zm0 3.3a5.1 5.1 0 1 1 0 10.2 5.1 5.1 0 0 1 0-10.2Zm0 1.9a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.3-3.4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"></path></svg></a>
+        </div>
+        <nav>
+          <a href="impressum.html">Imprint</a>
+          <a href="datenschutz.html">Ochrona danych</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/i18n-pl.js"></script><script src="../js/lenis.min.js"></script>
+  <script src="../js/site.js"></script>
+</body>
+</html>

@@ -58,26 +58,32 @@ Nav-Link ergänzen).
 - SEO: Meta/OG-Tags, JSON-LD, `sitemap.xml`, `robots.txt`
 - Der kleine Bulli am rechten Seitenrand fährt mit dem Scroll-Fortschritt
 
-## Englische Sprachversion aktualisieren
+## Sprachversionen aktualisieren
 
-Die englische Sprachversion liegt unter `/en/`. Beim Abgleich am 19.10.2026
-waren 43 englische Gegenstücke für 57 deutsche HTML-Seiten vorhanden. Die
-fehlenden Seiten und die noch offenen Sprachversionen Französisch, Polnisch
-und Spanisch sind im [Projektkontext](docs/PROJEKTKONTEXT.md) aufgeführt.
-
-Der vorhandene Generator aktualisiert englische Seiten samt internen Links,
-Metadaten und dynamisch erzeugten Karteninhalten mit diesem Befehl:
+Alle 57 deutschen Seiten haben Gegenstücke unter `/en/`, `/es/`, `/fr/` und
+`/pl/`. Die Sprachauswahl auf jeder Seite behält den jeweiligen Artikel bei.
+Die Übersetzungen sind maschinell erzeugt; Impressum und Datenschutzerklärung
+verweisen aus allen Sprachversionen auf die maßgeblichen deutschen Originale.
 
 ```bash
-python3 scripts/generate_english_site.py
+python3 scripts/generate_languages.py --offline
+python3 scripts/generate_languages.py --validate-only
+node scripts/check_languages.mjs
 ```
 
-Die Übersetzungen werden lokal in `scripts/translations-de-en.json` gespeichert;
-dieser Cache wird nicht veröffentlicht. Mit `--offline` lässt sich anschließend
-prüfen, ob der lokale Übersetzungsspeicher vollständig ist, ohne eine
-Netzwerkverbindung zu verwenden. Die englischen Rechtsseiten verweisen bewusst
-auf die maßgeblichen deutschen Originalseiten, damit persönliche Angaben nicht
-in zusätzlichen Dateien dupliziert werden.
+Die komprimierten Wörterbücher unter `translations/` gehören zum Quellstand.
+Dadurch ist die Generierung offline reproduzierbar. Neue deutsche Texte können
+mit `python3 scripts/generate_languages.py` ergänzt werden; dafür werden nur die
+fehlenden öffentlichen Website-Texte an den Übersetzungsdienst übertragen.
+Besucher laden fertige HTML-Seiten und lokale JavaScript-Wörterbücher; ihre
+Seitenaufrufe lösen keine Anfragen an den Übersetzungsdienst aus.
+
+Der Generator berücksichtigt Navigation, Metadaten, Bildbeschreibungen und
+Bedientexte von Karten, Filtern und Spiel. Er prüft die Zielseiten, lokalen
+Verweise und Sprachkennzeichnungen und aktualisiert die Sitemap.
+`generate_english_site.py` enthält weiterhin die gemeinsam verwendeten
+Extraktionsfunktionen; zum Aktualisieren der Website den mehrsprachigen
+Generator verwenden.
 
 ## Europa-Entsorgungsdaten aktualisieren
 
