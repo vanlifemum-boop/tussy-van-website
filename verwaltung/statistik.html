@@ -12,25 +12,12 @@
   <main class="section"><div class="wrap prose">
     <span class="cat sticker terra">Website-Verwaltung</span>
     <h1>Deine Besuchsstatistik</h1>
-    <p class="lead">Welche Beiträge werden gelesen? Wie entwickeln sich die Aufrufe über die Zeit?</p>
-    <div class="box" aria-live="polite"><h2 id="statistics-status">Verbindung wird geprüft …</h2><p id="statistics-message">Die Statistik wird nicht öffentlich angezeigt. Das Dashboard erfordert deine Anmeldung beim Statistikdienst.</p><a id="statistics-dashboard" class="btn btn-neon" hidden rel="noopener noreferrer">Statistik öffnen</a></div>
-    <section id="statistics-setup" hidden>
-      <h2>Einmalig verbinden</h2>
-      <p>Die Website-Anbindung ist vorbereitet. Es fehlt noch das zugehörige GoatCounter-Konto. Bis zur Aktivierung werden keine Aufrufe erfasst und keine Anfragen an GoatCounter gesendet.</p>
-      <ol>
-        <li><a href="https://www.goatcounter.com/signup" target="_blank" rel="noopener noreferrer">GoatCounter-Konto anlegen</a>. Trage als Website <strong>tussy-van.de</strong> ein und wähle deinen Kontonamen.</li>
-        <li>Stelle in den Einstellungen die Sichtbarkeit des Dashboards auf <strong>nur angemeldete Nutzer</strong>. Aktiviere keine öffentliche Statistik.</li>
-        <li>Teile mir nur die Dashboard-Adresse mit, zum Beispiel <strong>dein-kontoname.goatcounter.com</strong>. Ein Passwort oder API-Schlüssel wird für die Einbindung nicht benötigt.</li>
-      </ol>
-    </section>
-    <h2>So liest du die Zahlen</h2>
-    <ul>
-      <li><strong>Blogbeiträge:</strong> Im Dashboard die Seitenliste nach <code>/blog/</code> filtern. Die Übersetzungen werden unter demselben Beitrag zusammengezählt.</li>
-      <li><strong>Zeitraum:</strong> Datum beziehungsweise Tages-, Wochen- oder Monatsansicht auswählen.</li>
-      <li><strong>Export:</strong> Daten lassen sich bei GoatCounter als CSV exportieren.</li>
-      <li><strong>Aufrufe sind keine Personen:</strong> Ein erneutes Laden kann einen weiteren Aufruf erzeugen. Die Zahlen beginnen erst nach der Aktivierung.</li>
-    </ul>
-    <p>Gezählt werden nur Aufrufe mit erteilter Statistik-Einwilligung. Ablehnung, Datenschutzsignale, Werbeblocker oder technische Ausfälle können zu niedrigeren Zahlen führen. Verwaltungsseiten und Seiten mit <code>noindex</code> werden nicht gezählt.</p>
+    <p class="lead">Aufrufe je Blogbeitrag und Tag – ohne zusätzliches Konto bei einem Statistikdienst.</p>
+    <div class="box" aria-live="polite"><h2 id="statistics-status">Verbindung wird geprüft …</h2><p id="statistics-message">Die Auswertung wird geladen.</p><a id="statistics-dashboard" class="btn btn-neon" hidden rel="noopener noreferrer">Meine Statistik öffnen</a></div>
+    <h2>Das findest du in deiner Auswertung</h2><ul><li>Aufrufe für jeden Blogbeitrag und jede weitere öffentliche Seite.</li><li>Tageszahlen und einen frei wählbaren Zeitraum.</li><li>CSV-Download für deine eigenen Auswertungen.</li><li>Alle Sprachversionen eines Beitrags gemeinsam gezählt.</li></ul>
+    <p>Die Statistik arbeitet nach demselben Prinzip wie bei Systemfehler Familie: ein eigener Server speichert nur Tagesdatum, Seitenpfad und Anzahl. Es werden keine Besucherprofile angelegt.</p>
+    <p>Besucher müssen sich nicht anmelden. Die Auswertung ist für dich geschützt und lässt sich mit deinem vorhandenen ChatGPT-Konto öffnen; ein neues Konto ist nicht nötig.</p>
+    <p>Aufrufe sind keine einzelnen Personen. Erneutes Laden zählt erneut. Widerspruch, Datenschutzsignale, Werbeblocker und technische Ausfälle können zu niedrigeren Zahlen führen. Frühere Besuche werden nicht rückwirkend erfasst.</p>
     <p><a href="../datenschutz.html#besuchsstatistik">Informationen zum Datenschutz</a></p>
   </div></main>
   <script src="../js/statistics-admin.js"></script>

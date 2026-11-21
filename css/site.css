@@ -677,21 +677,8 @@ h1, h2, h3 { font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-
 .cookie-banner .row { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 .cookie-banner .btn { padding: 0.55em 1.2em; font-size: 0.85rem; }
 
-/* Optional statistics consent stays separate from video consent. */
-.statistics-consent {
-  position: fixed; inset: auto 1rem 1rem; z-index: 91;
-  max-width: 560px; max-height: calc(100dvh - 2rem); overflow: auto;
-  margin: 0 auto; padding: 1.3rem 1.5rem;
-  background: var(--white); color: var(--ink);
-  border: 3px solid var(--ink); border-radius: 16px; box-shadow: var(--shadow-sticker);
-}
-.statistics-consent h2 { font-size: 1.15rem; margin: 0 0 .6rem; }
-.statistics-consent p { font-size: 1rem; margin: 0 0 .7rem; }
-.statistics-consent a { font-size: .9rem; text-decoration: underline; }
-.statistics-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
-.statistics-actions .btn { font-size: 1rem; min-height: 44px; }
 .statistics-preferences { display: block; margin: 1rem auto 0; padding: .6rem; color: inherit; background: transparent; border: 0; text-decoration: underline; cursor: pointer; font: inherit; font-size: .9rem; }
-#statistics-dashboard[hidden], #statistics-setup[hidden] { display: none; }
+#statistics-dashboard[hidden] { display: none; }
 
 /* ---------- Shop (vorbereitet) ---------- */
 .shop-soon { text-align: center; padding: 2rem 0 0; }
@@ -816,3 +803,11 @@ h1, h2, h3 { font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-
 .christmas-callout { margin:2rem 0; padding:1.3rem; border:1px solid var(--terra); border-radius:1rem; }
 .christmas-callout h2 { margin-top:0; }
 @media(max-width:600px) { .travel-gallery { grid-template-columns:1fr; } .region-nav a { font-size:.82rem; } }
+
+/* Leipzig fair stories have a distinct blue/neon label and event date. */
+.fair-badge { background: #173db2; color: #fff; border: 2px solid #ffff00; transform: none; }
+.fair-highlight-card { border: 2px solid #173db2; box-shadow: 0 5px 0 #ffff00; }
+.fair-highlight-card .meta { color: #173db2; font-weight: 700; }
+.fair-event { background: #173db2; color: #fff; border-left: 6px solid #ffff00; padding: 1.2rem 1.4rem; margin: 1.5rem 0; border-radius: .65rem; }
+.fair-event strong { font-size: 1.15rem; }
+.fair-event p { margin: .35rem 0 0; }

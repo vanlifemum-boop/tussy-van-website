@@ -1,68 +1,26 @@
-# Besuchsstatistik
+# Eigene Besuchsstatistik
 
-## Stand
+Gleiches Prinzip wie Systemfehler Familie (`vanlifemum-boop/familie-tischenreut`, `js/main.js`): ein eigener Collector speichert aggregierte Seitenaufrufe, ohne Besucherprofile und ohne Registrierung bei einem zusätzlichen Statistikdienst. Die Systeme verwenden getrennte Datenbanken.
 
-Die Integration ist implementiert, aber bewusst **nicht aktiviert**. Es wurde
-kein GoatCounter-Konto erfunden oder ungeprüft einer fremden Kennung zugeordnet.
-`config/analytics.json` enthält `enabled: false` und einen leeren `siteCode`.
-Ohne aktivierte, gültige Konfiguration erfolgen keine Provider-Anfragen.
+## Betrieb
 
-Die Verwaltungsseite liegt unter `/verwaltung/statistik.html`. Sie zeigt den
-tatsächlichen Konfigurationszustand, keine erfundenen Besucherzahlen. Nach der
-Aktivierung verlinkt sie das private, anmeldepflichtige GoatCounter-Dashboard.
-Die Website selbst enthält weder API-Schlüssel noch Dashboard-Zugangsdaten.
+- Collector: https://tussy-van-statistik.workspace-vo-1968.chatgpt.site/api/track
+- Auswertung: https://tussy-van-statistik.workspace-vo-1968.chatgpt.site/
+- Einstieg: https://tussy-van.de/verwaltung/statistik.html
+- Sites-Projekt: `appgprj_6b01454bb3bc81919b59b6e80c6d3540`
+- Quellrepository des Collectors: über die Sites-Projektverwaltung zugänglich. Gehört nicht zur GitHub-Pages-Auslieferung.
+- Beginn: 21. November 2026. Vorherige Aufrufe können nicht rekonstruiert werden.
 
-## Einmalige Aktivierung
+Die öffentliche Zählung benötigt keine Anmeldung. Für das private Dashboard reicht das bestehende ChatGPT-Konto der Eigentümerin. Der Server prüft die von der Hosting-Plattform gesetzte Identität gegen die serverseitige ADMIN_EMAIL-Einstellung. Diese gehört weder in dieses Repository noch in den Browsercode.
 
-1. Die Eigentümerin legt unter https://www.goatcounter.com/signup ihr Konto an
-   oder nennt ihr bestehendes Konto. Website: `tussy-van.de`.
-2. Im Konto Domain und Dashboard-Sichtbarkeit prüfen: nur angemeldete Nutzer.
-   Einzelne Pageviews und öffentliche Besucherzähler nicht aktivieren.
-   Nicht benötigte Browser-, System-, Standort-, Sprach- und Bildschirmdetails
-   können in den GoatCounter-Einstellungen abgeschaltet werden.
-3. Nur den bestätigten Kontonamen in `config/analytics.json` als `siteCode`
-   eintragen und `enabled` auf `true` setzen. Keine Kennung erraten und keine
-   Zugangsdaten im Repository ablegen.
-4. **Im gleichen Commit** den Absatz „keine Analyse-Werkzeuge“ und den
-   deaktivierten Statistik-Hinweis in `datenschutz.html` aktualisieren. Die
-   bisherige YouTube-Einwilligung gilt ausdrücklich nicht für Statistik.
-   Die dann aktive Verarbeitung muss genannt werden: GoatCounter, Anbieter
-   Martin Tournoij (Irland), Seitenpfad ohne Query/Fragment, Seitentitel,
-   technische Verbindungs-/Browserdaten; statistische Verarbeitung laut
-   https://www.goatcounter.com/help/privacy. Einwilligung und Widerruf über
-   „Statistik-Einstellungen“; Speicherung dieser Entscheidung unter
-   `tv-statistics-consent-v1`. Keine Tracking-Cookies; Hosting des Dienstes laut
-   Anbieter bei Hetzner in Finnland/Deutschland. Keine pauschale Behauptung,
-   dass überhaupt keine IP-Adresse verarbeitet wird.
-5. Katalog und Checks ausführen, veröffentlichen, dann im echten Dashboard
-   einen bewusst erlaubten Testaufruf prüfen. Erst danach „Zähler aktiv“ melden.
+## Daten und Grenzen
 
-## Was gezählt wird
+Gespeichert werden nur Datum (Europe/Berlin), kanonischer Seitenpfad und Anzahl. Kein IP-/Cookie-/Referrer-/Besucherprofil in der Statistikdatenbank. Technische IP-Verarbeitung durch Hosting-Infrastruktur ist davon zu unterscheiden. Aufrufe sind keine eindeutigen Personen; Reload zählt erneut. Keine rückwirkenden Schätzwerte.
 
-- Öffentliche HTML-Seiten von `https://tussy-van.de` und `www.tussy-van.de`.
-- Ein Aufruf pro geladenem Dokument nach ausdrücklicher Statistik-Einwilligung.
-  Erneutes Laden zählt erneut (`no_session: true`). Das ist **keine Messung
-  unterschiedlicher Personen** und keine Aussage über vollständig gelesene Texte.
-- Erst bei sichtbarem Dokument. GPC und Do Not Track verhindern die Erfassung.
-- Sprachversionen werden derselben deutschen URL zugeordnet, mit einem stabilen
-  deutschen Seitentitel. Keine personenbezogenen Query-Parameter, Fragmente oder
-  Referrer werden absichtlich an die Statistik übergeben.
-- Nur vorhandene öffentliche Seiten im automatisch erzeugten Katalog.
-  `noindex`, Verwaltungsseiten und lokale Vorschauen werden nicht gezählt.
-- Der Katalog wird bei jeder Veröffentlichung und Sprachgenerierung erneuert.
+`data/analytics-pages.json` enthält veröffentlichte öffentliche Seiten. Der Build aktualisiert ihn automatisch; der Collector übernimmt neue Pfade spätestens bei seiner nächsten stündlichen Aktualisierung. Verwaltungs-/noindex-Seiten und lokale Vorschauen werden nicht gezählt. Die Sprachfassungen DE/EN/ES/FR/PL zählen für denselben Beitrag.
 
-Ablehnung, Werbeblocker, JavaScript-Deaktivierung und Netzausfälle fehlen in den
-Zahlen. Bots können einzelne Aufrufe verfälschen. Frühere Zugriffe lassen sich
-nicht rückwirkend aus dieser Integration rekonstruieren.
+Pro sichtbarem Dokument sendet `js/analytics.js` höchstens einen POST, mit ausgelassenen Credentials und ohne Referrer. DNT/GPC, bestehende Ablehnung und `_tv_stats=off` werden vor dem Senden geprüft. `_tv_stats=on` hebt die gespeicherte Ablehnung wieder auf; Datenschutzsignale des Browsers bleiben vorrangig. Speicherfehler verhindern die Website-Nutzung nicht. Bei Netzfehlern keine automatischen Wiederholungen, um Doppelzählungen zu vermeiden. Adblocker, Ausfälle oder gezielt manipulierte Aufrufe begrenzen die Aussagekraft.
 
-## Prüfen
+## Prüfung
 
-```sh
-python3 scripts/build_analytics_catalog.py
-node scripts/test_analytics.mjs
-python3 scripts/generate_languages.py --validate-only
-```
-
-In GoatCounter die Seitenliste mit `/blog/` filtern, Zeitraum wählen, nach
-Aufrufen sortieren und bei Bedarf CSV exportieren. Bedienungsgrundlagen:
-https://www.goatcounter.com/help/start und https://www.goatcounter.com/help/js.
+`node scripts/test_analytics.mjs` prüft das Browserverhalten. Der Collector hat eigene Tests für Origin-/Pfadvalidierung, atomare Zählung, Berliner Tagesgrenze, Privatsphärensignale und Zugriffsschutz. `/health` prüft die Tabelle ohne einen Besuch zu zählen. Die Auswertung bietet Datumsauswahl, Seitenliste, Tageswerte und CSV-Export. Die Trennung der beiden Websites ist im Collector durch fest zugelassene Tussy-Van-Origins umgesetzt.

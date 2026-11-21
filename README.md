@@ -54,14 +54,12 @@ Nav-Link ergänzen).
 
 ## Technik
 
-### Besuchsstatistik (Anbindung vorbereitet)
+### Eigene Besuchsstatistik
 
-Die [Statistik-Verwaltung](https://tussy-van.de/verwaltung/statistik.html) zeigt
-den Einrichtungsstatus. GoatCounter ist noch **deaktiviert**, bis die
-Eigentümerin ihr Statistik-Konto zugeordnet hat. Aktivierung, Datenschutz und
-Prüfung sind in [docs/besuchsstatistik.md](docs/besuchsstatistik.md) dokumentiert.
-Der Zähler fasst nach Aktivierung Sprachversionen desselben Beitrags zusammen
-und erfasst ausschließlich Aufrufe mit gesonderter Statistik-Einwilligung.
+Die [Statistik-Verwaltung](https://tussy-van.de/verwaltung/statistik.html) führt
+zur eigenen, geschützten Auswertung. Kein zusätzliches Statistikdienst-Konto.
+Aufrufe werden je Beitrag und Berliner Kalendertag gespeichert; Sprachversionen
+werden zusammengefasst. Details: [docs/besuchsstatistik.md](docs/besuchsstatistik.md).
 
 - Statisch: HTML + CSS + Vanilla JS, Lenis Smooth Scroll (vendored)
 - Europakarte: aus Natural-Earth-Daten generiert (Public Domain), Route/Bulli in `js/site.js`
