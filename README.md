@@ -54,6 +54,15 @@ Nav-Link ergänzen).
 
 ## Technik
 
+### Besuchsstatistik (Anbindung vorbereitet)
+
+Die [Statistik-Verwaltung](https://tussy-van.de/verwaltung/statistik.html) zeigt
+den Einrichtungsstatus. GoatCounter ist noch **deaktiviert**, bis die
+Eigentümerin ihr Statistik-Konto zugeordnet hat. Aktivierung, Datenschutz und
+Prüfung sind in [docs/besuchsstatistik.md](docs/besuchsstatistik.md) dokumentiert.
+Der Zähler fasst nach Aktivierung Sprachversionen desselben Beitrags zusammen
+und erfasst ausschließlich Aufrufe mit gesonderter Statistik-Einwilligung.
+
 - Statisch: HTML + CSS + Vanilla JS, Lenis Smooth Scroll (vendored)
 - Europakarte: aus Natural-Earth-Daten generiert (Public Domain), Route/Bulli in `js/site.js`
 - SEO: Meta/OG-Tags, JSON-LD, `sitemap.xml`, `robots.txt`

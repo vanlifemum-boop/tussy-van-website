@@ -15,6 +15,12 @@
   };
   window.TV_CONFIG = CONFIG;
 
+  // Shared by every language and newly published blog article.
+  var statisticsScript = document.createElement("script");
+  statisticsScript.src = "/js/analytics.js";
+  statisticsScript.defer = true;
+  document.head.appendChild(statisticsScript);
+
   /* ---------- Pack & Go in jeder Sprachversion ---------- */
   function setupGameLink() {
     var nav = document.querySelector(".main-nav");
@@ -149,6 +155,7 @@
     try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {}
     var b = document.querySelector(".cookie-banner");
     if (b) b.classList.remove("show");
+    document.dispatchEvent(new Event("tv-media-consent"));
     if (v === "all") loadYouTube();
   }
   window.TV_setConsent = setConsent;

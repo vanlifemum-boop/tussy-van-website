@@ -309,6 +309,8 @@ def main():
     from update_latest_blog import update as update_latest_blog
     update_latest_blog(ROOT)
     sitemap(pages)
+    from build_analytics_catalog import build as build_analytics_catalog
+    build_analytics_catalog(ROOT)
     validate(pages)
 
 
